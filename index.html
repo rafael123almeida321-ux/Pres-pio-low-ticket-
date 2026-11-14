@@ -217,7 +217,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 </head>
 <body>
 
-<div class="review" id="review" hidden>Versão de revisão: faltam os dados do vendedor (nome, CPF/CNPJ e e-mail de suporte) no rodapé.</div>
+<div class="review" id="review" hidden>Versão de revisão: o link do checkout ainda não foi configurado.</div>
 
 <!-- HERO -->
 <header class="hero" id="topo">
@@ -464,8 +464,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 
 <footer>
   <div class="wrap">
-    <p id="seller"></p>
-    <p>Presépio Noite a Noite · produto digital para uso familiar.</p>
+        <p>Presépio Noite a Noite · produto digital para uso familiar.</p>
   </div>
 </footer>
 
@@ -480,8 +479,7 @@ const CONFIG = {
   checkoutUrl: "https://pay.cakto.com.br/6e9uajm_1320211",
   // Preço de lançamento: só use se o valor cheio for aplicado de verdade na Cakto depois desta data
   lancamento: { ate: "2026-11-30", ateTexto: "30/11", precoCheio: "R$ 37,99" },
-  pixelId: "",                // ID do Pixel da Meta (opcional)
-  seller: { nome: "", documento: "", email: "" }
+  pixelId: "1140696101011245", // mesmo Pixel dos outros low tickets
 };
 
 /* ===== Mensuração (sem dados pessoais) ===== */
@@ -511,11 +509,7 @@ track("landing_view", { source: new URLSearchParams(location.search).get("from")
     a.href = checkoutHref();
     a.addEventListener("click", () => track("cta_click", { position: a.dataset.pos }));
   });
-  const s = CONFIG.seller;
-  const seller = document.getElementById("seller");
-  if (s.nome) seller.textContent = [s.nome, s.documento, s.email].filter(Boolean).join(" · ");
-  else seller.innerHTML = '<span class="pend">Dados do vendedor: preencher antes de publicar.</span>';
-  if (!CONFIG.checkoutUrl || !s.nome) document.getElementById("review").hidden = false;
+  if (!CONFIG.checkoutUrl) document.getElementById("review").hidden = false;
   const L = CONFIG.lancamento;
   if (L && L.ate && new Date() <= new Date(L.ate + "T23:59:59-03:00")) {
     document.querySelectorAll(".js-ate").forEach(e => e.textContent = L.ateTexto);
