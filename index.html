@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presépio Noite a Noite</title>
+<meta name="description" content="Devocional em família de 24 dias com um presépio de papel para montar até o Natal. Histórias, orações e atividades para as crianças. PDF para imprimir, R$ 14,99.">
+<meta property="og:title" content="Presépio Noite a Noite">
+<meta property="og:description" content="Uma peça por noite. Um pedaço da história de cada vez. PDF para imprimir e montar em família.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1E2A4A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: a página é o próprio caminho até a manjedoura — faixa noturna de Belém no topo, noites marcadas por estrelas douradas. */
+  --noite:#1E2A4A; --noite-2:#26365E; --verde:#1F4D3A; --vinho:#7A1F2B; --ouro:#C9A227; --ouro-claro:#E7BE45;
+  --creme:#F7EEDF; --papel:#FFFBF4; --tinta:#2B2118; --tinta-2:#5E5248; --linha:#E4D5BD;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --r:16px; --wrap:1080px;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--creme);color:var(--tinta);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(28px,6.4vw,44px);color:var(--verde)}
+h3{font-size:21px;color:var(--verde)}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--vinho);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.eyebrow::before{content:"";width:14px;height:14px;background:var(--ouro);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+section{padding:72px 0}
+.lead{font-size:clamp(17px,2.4vw,20px);color:var(--tinta-2);max-width:62ch}
+
+/* Botão */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ouro-claro);color:#1E1A12;font-weight:800;font-size:18px;text-decoration:none;padding:18px 28px;border-radius:999px;box-shadow:0 4px 0 #A9831C,0 10px 24px rgba(30,42,74,.25);transition:transform .15s ease, box-shadow .15s ease;min-height:56px;text-align:center}
+.cta:hover{transform:translateY(-2px);box-shadow:0 6px 0 #A9831C,0 14px 28px rgba(30,42,74,.3)}
+.cta:active{transform:translateY(2px);box-shadow:0 2px 0 #A9831C,0 6px 14px rgba(30,42,74,.25)}
+.cta:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--vinho);outline-offset:3px}
+.cta .arrow{font-size:20px;line-height:1}
+.cta.wide{width:100%}
+
+/* Aviso de revisão */
+.review{background:#FFF1C9;color:#5A4300;font-size:14px;padding:10px 20px;text-align:center;border-bottom:1px solid #E8D18A}
+.review[hidden]{display:none}
+
+/* HERO */
+.hero{background:var(--noite);color:var(--creme);padding:44px 0 0;position:relative;overflow:hidden}
+.hero .sky{position:absolute;inset:0;pointer-events:none}
+.hero .sky i{position:absolute;width:6px;height:6px;background:var(--ouro);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);opacity:.8;animation:twinkle 4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.85}50%{opacity:.3}}
+.hero .wrap{position:relative}
+.hero .eyebrow{color:var(--ouro-claro)}
+.hero h1{font-size:clamp(42px,10vw,76px);color:#FFF6E6}
+.hero .lead{color:#E6DCCB;margin-top:16px;font-size:clamp(18px,2.6vw,21px)}
+.tagline{font-family:var(--display);font-weight:600;font-style:italic;color:var(--ouro-claro);font-size:clamp(19px,3vw,24px);margin-top:14px}
+.hero-grid{display:grid;gap:28px;align-items:end}
+.hero-actions{display:flex;flex-direction:column;gap:14px;margin-top:26px;align-items:flex-start}
+.price-line{font-size:15px;color:#D9CDB8}
+.price-line b{color:#FFF6E6;font-size:17px}
+.hero a.more{color:#E6DCCB;font-size:15px;text-underline-offset:3px}
+.hero figure{margin:0;position:relative}
+.hero figure img{border-radius:18px 18px 0 0;border:3px solid var(--ouro);border-bottom:0}
+.hero figcaption{position:absolute;left:12px;bottom:10px;background:rgba(30,42,74,.82);color:#EADFCB;font-size:12px;padding:5px 10px;border-radius:999px}
+
+/* SENTIDO */
+.sentido{background:var(--papel)}
+.sentido .wrap{display:grid;gap:22px;max-width:820px}
+.sentido p.big{font-family:var(--display);font-weight:600;font-size:clamp(20px,3vw,24px);color:var(--vinho)}
+
+/* COMO FUNCIONA */
+.como-grid{display:grid;gap:32px;margin-top:30px}
+.stage-box{background:var(--noite);border-radius:20px;padding:12px;box-shadow:0 18px 40px rgba(30,42,74,.25)}
+.stage{position:relative;aspect-ratio:3/2;border-radius:12px;overflow:hidden;background:#F5E7D0 url(img/cenario.webp) center/cover}
+.stage img{position:absolute;height:auto;transition:opacity .5s ease, transform .5s cubic-bezier(.2,.9,.3,1.3)}
+.stage img.off{opacity:0;transform:translateY(-18%) scale(.92)}
+.stage-bar{display:flex;align-items:center;gap:10px;padding:12px 6px 4px;color:#F4EAD8}
+.stage-bar .count{flex:1;font-weight:700;font-size:15px}
+.stage-bar .count b{font-family:var(--display);font-size:20px;color:var(--ouro-claro)}
+.stage-bar button{background:transparent;border:1.5px solid rgba(244,234,216,.5);color:#F4EAD8;border-radius:999px;min-width:44px;height:44px;font:700 15px var(--body);cursor:pointer;padding:0 14px}
+.stage-bar button:hover{border-color:var(--ouro-claro);color:var(--ouro-claro)}
+.dots{display:flex;gap:4px;padding:2px 6px 6px}
+.dots span{flex:1;height:5px;border-radius:3px;background:rgba(244,234,216,.18);transition:background .3s}
+.dots span.on{background:var(--ouro)}
+.stage-note{font-size:13px;color:var(--tinta-2);margin-top:10px}
+.steps{display:grid;gap:14px;counter-reset:s;margin:0;padding:0;list-style:none}
+.steps li{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r);padding:16px 18px 16px 64px;position:relative}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:16px;width:34px;height:34px;border-radius:50%;background:var(--verde);color:#fff;font:800 17px var(--body);display:grid;place-items:center}
+.steps h3{font-size:19px;margin-bottom:4px}
+.steps p{color:var(--tinta-2);font-size:16px}
+.card-shot{margin:18px 0 0}
+.card-shot img{border-radius:12px;box-shadow:0 10px 26px rgba(43,33,24,.18)}
+.card-shot figcaption{font-size:13px;color:var(--tinta-2);margin-top:8px}
+
+.devoc{background:var(--creme)}
+.dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.dev-grid figure{margin:0}
+.dev-grid button{display:block;width:100%;border:0;padding:0;background:none;cursor:zoom-in;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(43,33,24,.16)}
+.dev-grid figcaption{font-size:13.5px;color:var(--tinta-2);margin-top:8px;text-align:center}
+@media (min-width:760px){.dev-grid{grid-template-columns:repeat(4,1fr)}}
+/* MATERIAIS */
+.materiais{background:var(--papel)}
+.mat-list{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:16px}
+.mat{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center;background:#fff;border:1px solid var(--linha);border-radius:var(--r);padding:12px}
+.mat button{padding:0;border:0;background:none;cursor:zoom-in;border-radius:8px;overflow:hidden;box-shadow:0 3px 10px rgba(43,33,24,.18)}
+.mat button img{aspect-ratio:3/4;object-fit:cover;object-position:top;width:96px}
+.mat .num{font-family:var(--display);font-weight:800;color:var(--ouro);font-size:15px;letter-spacing:.06em}
+.mat h3{font-size:19px;margin:2px 0 4px}
+.mat p{color:var(--tinta-2);font-size:15.5px}
+.disclaimer{font-size:14px;color:var(--tinta-2);margin-top:16px}
+
+/* RITMOS */
+.ritmos-grid{display:grid;gap:14px;margin-top:28px}
+.ritmo{border-radius:var(--r);padding:22px;background:var(--verde);color:#F3EADB}
+.ritmo:nth-child(2){background:var(--vinho)}
+.ritmo:nth-child(3){background:var(--noite)}
+.ritmo:nth-child(4){background:#5A3E2B}
+.ritmo .n{font-family:var(--display);font-weight:800;font-size:42px;color:var(--ouro-claro);line-height:1}
+.ritmo h3{color:#FFF6E6;font-size:20px;margin:6px 0 6px}
+.ritmo p{font-size:15.5px;color:#E8DDCB}
+
+/* BÔNUS */
+.bonus{background:var(--papel)}
+.bonus-grid{display:grid;gap:16px;margin-top:28px}
+.bon{background:#fff;border:1px solid var(--linha);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.bon button{display:block;width:100%;border:0;padding:0;background:#F1E6D3;cursor:zoom-in}
+.bon button img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top}
+.bon .tx{padding:16px 18px 18px}
+.bon .tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--vinho);margin-bottom:6px}
+.bon p{color:var(--tinta-2);font-size:15.5px;margin-top:6px}
+
+/* FAIXA */
+.faixa{background:var(--noite);color:#FFF6E6;padding:54px 0;text-align:center}
+.faixa p{font-family:var(--display);font-weight:800;font-size:clamp(24px,5vw,38px);line-height:1.25}
+.faixa span{display:block}
+.faixa span:nth-child(2){color:var(--ouro-claro)}
+
+/* FICHA */
+.ficha dl{display:grid;grid-template-columns:1fr;margin:26px 0 0;border-top:1px solid var(--linha)}
+.ficha .row{display:grid;grid-template-columns:1fr;gap:2px;padding:14px 0;border-bottom:1px solid var(--linha)}
+.ficha dt{font-weight:800;color:var(--verde);font-size:15px}
+.ficha dd{margin:0;color:var(--tinta-2);font-size:16px}
+
+/* OFERTA */
+.oferta{background:linear-gradient(180deg,var(--creme) 0,var(--papel) 100%)}
+.offer{max-width:560px;margin:0 auto;background:#fff;border:2px solid var(--ouro);border-radius:22px;padding:30px 22px;box-shadow:0 20px 50px rgba(43,33,24,.14);text-align:center}
+.offer img{border-radius:12px;margin:18px 0 6px}
+.offer ul{list-style:none;padding:0;margin:20px 0;text-align:left;display:grid;gap:9px}
+.offer li{padding-left:30px;position:relative;font-size:16px}
+.offer li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.offer li.b::before{background-color:var(--vinho)}
+.offer li.b b{color:var(--vinho)}
+.offer .price{font-family:var(--display);font-weight:800;font-size:64px;color:var(--verde);line-height:1;margin-top:6px}
+.offer .price small{font-size:26px;vertical-align:top;position:relative;top:10px;margin-right:4px}
+.offer .once{color:var(--tinta-2);font-size:15px;margin:6px 0 20px}
+.offer .pay{font-size:13.5px;color:var(--tinta-2);margin-top:14px}
+
+/* GARANTIA */
+.garantia .box{display:grid;gap:18px;grid-template-columns:auto 1fr;align-items:center;max-width:760px;margin:0 auto;background:var(--papel);border:1px dashed var(--ouro);border-radius:20px;padding:24px}
+.seal{width:84px;height:84px;border-radius:50%;background:var(--verde);color:#FFF6E6;display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;line-height:1;box-shadow:0 0 0 5px var(--papel),0 0 0 7px var(--ouro)}
+.seal b{display:block;font-size:30px}
+.seal span{font-size:12px;font-family:var(--body)}
+.garantia p{color:var(--tinta-2);margin-top:6px}
+
+/* FAQ */
+.faq-list{margin-top:26px;display:grid;gap:10px}
+details{background:#fff;border:1px solid var(--linha);border-radius:14px}
+summary{cursor:pointer;list-style:none;padding:18px 52px 18px 18px;font-weight:800;font-size:17px;position:relative;color:var(--verde)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font:800 24px var(--body);color:var(--vinho)}
+details[open] summary::after{content:"–"}
+details p{padding:0 18px 18px;color:var(--tinta-2)}
+
+/* FINAL */
+.final{background:var(--noite);color:#FFF6E6;text-align:center;padding:70px 0 60px;position:relative;overflow:hidden}
+.final h2{color:#FFF6E6}
+.final .tagline{margin:12px 0 26px}
+.final .trust{font-size:14px;color:#CFC3AE;margin-top:16px}
+footer{background:#16203A;color:#AFA593;font-size:13.5px;padding:28px 0 36px;text-align:center}
+footer p+p{margin-top:6px}
+footer .pend{color:#E7BE45}
+
+/* Lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:min(94vw,900px);max-height:92vh}
+dialog::backdrop{background:rgba(16,22,40,.82)}
+dialog img{max-height:84vh;width:auto;margin:0 auto;border-radius:10px;background:#fff}
+dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);border:0;border-radius:999px;font:800 16px var(--body);padding:12px 24px;cursor:pointer;min-height:44px}
+
+@media (min-width:760px){
+  section{padding:96px 0}
+  .hero{padding-top:64px}
+  .hero-grid{grid-template-columns:1fr 1.15fr;gap:40px}
+  .hero-text{padding-bottom:56px}
+  .como-grid{grid-template-columns:1.2fr 1fr;align-items:start}
+  .mat-list{grid-template-columns:1fr 1fr}
+  .mat{grid-template-columns:120px 1fr}
+  .mat button img{width:120px}
+  .ritmos-grid{grid-template-columns:repeat(2,1fr)}
+  .bonus-grid{grid-template-columns:repeat(2,1fr)}
+  .ficha .row{grid-template-columns:220px 1fr;gap:20px}
+  .faixa span{display:inline}
+}
+@media (min-width:1000px){ .bonus-grid{grid-template-columns:repeat(4,1fr)} }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="review" id="review" hidden>Versão de revisão: o checkout da Cakto e os dados do vendedor ainda não foram conectados. Os botões levam para a oferta.</div>
+
+<!-- HERO -->
+<header class="hero" id="topo">
+  <div class="sky" aria-hidden="true">
+    <i style="left:6%;top:12%"></i><i style="left:18%;top:30%;animation-delay:1s"></i><i style="left:31%;top:8%;animation-delay:2s"></i>
+    <i style="left:47%;top:20%;animation-delay:.5s"></i><i style="left:62%;top:6%;animation-delay:1.5s"></i><i style="left:76%;top:24%;animation-delay:2.5s"></i>
+    <i style="left:90%;top:10%;animation-delay:.8s"></i><i style="left:84%;top:40%;animation-delay:3s"></i>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">Para viver em família, noite a noite</p>
+      <h1>Presépio Noite a Noite</h1>
+      <p class="lead">Um devocional em família de 24 dias até o Natal, com um presépio de papel que vocês montam peça por peça enquanto contam às crianças a história do nascimento de Jesus.</p>
+      <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
+      <div class="hero-actions">
+        <a class="cta js-checkout" data-pos="hero" href="#oferta">Quero montar o meu presépio <span class="arrow" aria-hidden="true">→</span></a>
+        <p class="price-line"><b>R$ 14,99</b> · pagamento único · PDF para imprimir em casa</p>
+        <a class="more" href="#materiais">Veja tudo o que você vai receber ↓</a>
+      </div>
+    </div>
+    <figure>
+      <img src="img/presepio-completo.webp" width="1600" height="1067" alt="Presépio montado com as 12 peças do kit sobre o cenário de Belém à noite: estábulo, estrela, Maria, José, o Menino Jesus na manjedoura, anjos, pastores, sábios, jumentinho, boi e ovelha.">
+      <figcaption>Montagem digital feita com as 12 peças do kit</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+<!-- SENTIDO -->
+<section class="sentido">
+  <div class="wrap">
+    <p class="eyebrow">O sentido de celebrar</p>
+    <h2>No meio da correria, Jesus no centro do Natal.</h2>
+    <p class="lead">Entre compras, ceia e presentes, a história do nascimento de Jesus costuma ficar para depois. O Presépio Noite a Noite traz essa história para dentro de casa sem que você precise planejar nada: cada dia já vem com a leitura, a pergunta, a oração e a peça ou a atividade certa.</p>
+    <p class="big">Um jeito simples de esperar o Natal juntos.</p>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como" id="como-funciona">
+  <div class="wrap">
+    <p class="eyebrow">Como funciona</p>
+    <h2>A cada noite, o presépio cresce na frente das crianças.</h2>
+    <div class="como-grid">
+      <div>
+        <div class="stage-box">
+          <div class="stage" id="stage" role="img" aria-label="Demonstração: as peças do presépio aparecendo uma por noite, da noite 1 à noite 12."></div>
+          <div class="stage-bar">
+            <p class="count" aria-live="polite"><b id="noiteN">12</b> de 12 · <span id="noiteNome">Menino Jesus</span></p>
+            <button type="button" id="prev" aria-label="Noite anterior">‹</button>
+            <button type="button" id="play" aria-label="Pausar a demonstração">Pausar</button>
+            <button type="button" id="next" aria-label="Próxima noite">›</button>
+          </div>
+          <div class="dots" id="dots" aria-hidden="true"></div>
+        </div>
+        <p class="stage-note">As peças na ordem em que aparecem no kit. Na última noite, o Menino Jesus chega à manjedoura.</p>
+      </div>
+      <div>
+        <ol class="steps">
+          <li><h3>Leiam o cartão da noite</h3><p>Uma parte curta da história, adaptada da Bíblia para crianças.</p></li>
+          <li><h3>Conversem sobre a pergunta</h3><p>Cada noite traz uma pergunta simples para a família conversar.</p></li>
+          <li><h3>Recortem e coloquem a peça</h3><p>Dobre a aba e a peça fica em pé. O presépio ganha uma peça nova.</p></li>
+        </ol>
+        <figure class="card-shot">
+          <button type="button" class="js-zoom" data-src="img/cartao-noite-1.webp" data-alt="Cartão da noite 1: Uma visita inesperada" style="border:0;padding:0;background:none;cursor:zoom-in">
+            <img src="img/cartao-noite-1.webp" width="1200" height="565" loading="lazy" alt="Cartão da noite 1, Uma visita inesperada: história de Maria, pergunta para conversar e o que fazer na noite.">
+          </button>
+          <figcaption>Cartão da noite 1, do jeito que vem no kit. Toque para ampliar.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEVOCIONAL -->
+<section class="devoc" id="devocional">
+  <div class="wrap">
+    <p class="eyebrow">Devocional em família</p>
+    <h2>24 dias de encontro até o Natal</h2>
+    <p class="lead" style="margin-top:14px">Nos dias pares, uma parte da história e uma peça nova no presépio. Nos dias ímpares, um devocional curto e uma atividade. Todo dia tem uma pergunta para conversar e uma oração.</p>
+    <div class="dev-grid">
+      <figure><button type="button" class="js-zoom" data-src="img/pg-dev-calendario.webp" data-alt="Calendário de 24 dias"><img src="img/pg-dev-calendario.webp" width="900" height="1273" loading="lazy" alt="Calendário dos 24 dias até o Natal"></button><figcaption>Calendário dos 24 dias</figcaption></figure>
+      <figure><button type="button" class="js-zoom" data-src="img/pg-dev-dia3.webp" data-alt="Dia 3 do devocional"><img src="img/pg-dev-dia3.webp" width="900" height="1273" loading="lazy" alt="Página do dia 3: Dizer sim a Deus"></button><figcaption>Um dia de devocional</figcaption></figure>
+      <figure><button type="button" class="js-zoom" data-src="img/pg-ativ-caca.webp" data-alt="Caça-palavras"><img src="img/pg-ativ-caca.webp" width="900" height="1273" loading="lazy" alt="Atividade de caça-palavras da história"></button><figcaption>Caça-palavras da história</figcaption></figure>
+      <figure><button type="button" class="js-zoom" data-src="img/pg-ativ-memoria.webp" data-alt="Jogo da memória"><img src="img/pg-ativ-memoria.webp" width="900" height="1273" loading="lazy" alt="Jogo da memória com as peças do presépio"></button><figcaption>Jogo da memória</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIAIS -->
+<section class="materiais" id="materiais">
+  <div class="wrap">
+    <p class="eyebrow">Conheça os materiais</p>
+    <h2>O que vou receber?</h2>
+    <ul class="mat-list">
+      <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-dev-dia3.webp" data-alt="Página do devocional"><img src="img/pg-dev-dia3.webp" width="900" height="1273" loading="lazy" alt="Página do dia 3 do devocional: Dizer sim a Deus"></button>
+        <div><span class="num">01</span><h3>Devocional em família de 24 dias</h3><p>Um encontro por dia até o Natal, com leitura curta, pergunta para conversar e oração. São 24 orações ao todo.</p></div></li>
+      <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-ativ-labirinto.webp" data-alt="Atividade: labirinto até Belém"><img src="img/pg-ativ-labirinto.webp" width="900" height="1273" loading="lazy" alt="Atividade do labirinto até Belém"></button>
+        <div><span class="num">02</span><h3>12 atividades</h3><p>Caça-palavras, labirinto até Belém, ligue os pontos, jogo da memória, sombras, história em ordem e mais. Uma para cada dia de devocional.</p></div></li>
+      <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-cartoes.webp" data-alt="Página de cartões-noite"><img src="img/pg-cartoes.webp" width="900" height="1273" loading="lazy" alt="Página com três cartões-noite"></button>
+        <div><span class="num">03</span><h3>12 cartões-noite</h3><p>A história do nascimento de Jesus em 12 partes, com uma pergunta para conversar e o que fazer em cada noite.</p></div></li>
+      <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-pecas-cor.webp" data-alt="Folha de peças coloridas"><img src="img/pg-pecas-cor.webp" width="900" height="1273" loading="lazy" alt="Folha com Maria, o anjo Gabriel, José, o jumentinho e a manjedoura para recortar"></button>
+        <div><span class="num">04</span><h3>12 peças coloridas</h3><p>Maria, José, anjos, pastores, sábios, estábulo, manjedoura, estrela e o Menino Jesus, com aba para ficar em pé.</p></div></li>
+      <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-pecas-colorir.webp" data-alt="Folha de peças para colorir"><img src="img/pg-pecas-colorir.webp" width="900" height="1273" loading="lazy" alt="As mesmas peças em contorno, para colorir"></button>
+        <div><span class="num">05</span><h3>As 12 peças para colorir</h3><p>As mesmas peças em contorno, para a criança pintar antes de montar.</p></div></li>
+      <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-cenario.webp" data-alt="Cenário de Belém"><img src="img/pg-cenario.webp" width="1200" height="848" loading="lazy" alt="Cenário de Belém à noite, com céu estrelado e casinhas"></button>
+        <div><span class="num">06</span><h3>Cenário de Belém</h3><p>Um fundo noturno para apoiar atrás do presépio, também em versão para colorir.</p></div></li>
+      <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-roteiro.webp" data-alt="Roteiro e caminho até a manjedoura"><img src="img/pg-roteiro.webp" width="900" height="1273" loading="lazy" alt="Caminho com 12 círculos até o estábulo e o roteiro das 12 noites"></button>
+        <div><span class="num">07</span><h3>Roteiro e caminho até a manjedoura</h3><p>Para marcar cada noite e ver o Natal chegando.</p></div></li>
+      <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-capa.webp" data-alt="Capa do kit"><img src="img/pg-capa.webp" width="900" height="1273" loading="lazy" alt="Capa do kit Presépio Noite a Noite"></button>
+        <div><span class="num">08</span><h3>Guia de uso</h3><p>Como imprimir, que papel usar e os ritmos para começar: 24 dias, 12 noites, 6 noites ou uma noite especial.</p></div></li>
+    </ul>
+    <p class="disclaimer">Imagens de páginas reais do kit. Produto digital em PDF A4: impressão, papel e materiais não estão inclusos.</p>
+  </div>
+</section>
+
+<!-- RITMOS -->
+<section class="ritmos">
+  <div class="wrap">
+    <p class="eyebrow">Começa quando você quiser</p>
+    <h2>Comece em 1º de dezembro ou no dia que der.</h2>
+    <div class="ritmos-grid">
+      <div class="ritmo"><p class="n">24</p><h3>dias</h3><p>O devocional completo: comece em 1º de dezembro e, na véspera de Natal, o Menino Jesus chega à manjedoura.</p></div>
+      <div class="ritmo"><p class="n">12</p><h3>noites</h3><p>Uma peça por noite. Quem começa em 13 de dezembro termina na véspera de Natal.</p></div>
+      <div class="ritmo"><p class="n">6</p><h3>noites</h3><p>Duas peças por noite, para quem começar mais perto do Natal.</p></div>
+      <div class="ritmo"><p class="n">1</p><h3>noite especial</h3><p>Leiam os cartões em sequência e montem tudo de uma vez, no dia que for melhor para vocês.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS -->
+<section class="bonus" id="bonus">
+  <div class="wrap">
+    <p class="eyebrow">E ainda vem junto</p>
+    <h2>4 bônus para levar a história até a ceia</h2>
+    <div class="bonus-grid">
+      <article class="bon"><button type="button" class="js-zoom" data-src="img/pg-bonus-colorir.webp" data-alt="Página do livro de colorir"><img src="img/pg-bonus-colorir.webp" width="900" height="1273" loading="lazy" alt="Página para colorir com Maria, José e o Menino Jesus no estábulo"></button>
+        <div class="tx"><span class="tag">Bônus 1</span><h3>A História do Natal para Colorir</h3><p>6 cenas grandes da história, para pintar enquanto um adulto recorta as peças.</p></div></article>
+      <article class="bon"><button type="button" class="js-zoom" data-src="img/pg-bonus-ceia.webp" data-alt="Cartões da Ceia"><img src="img/pg-bonus-ceia.webp" width="900" height="1273" loading="lazy" alt="Quatro cartões com perguntas para a mesa de Natal"></button>
+        <div class="tx"><span class="tag">Bônus 2</span><h3>Cartões da Ceia</h3><p>12 perguntas para a família conversar na mesa de Natal sobre o nascimento de Jesus.</p></div></article>
+      <article class="bon"><button type="button" class="js-zoom" data-src="img/pg-bonus-pequenos.webp" data-alt="Versão para os Pequenininhos"><img src="img/pg-bonus-pequenos.webp" width="900" height="1273" loading="lazy" alt="Página com cada noite em duas frases e um gesto"></button>
+        <div class="tx"><span class="tag">Bônus 3</span><h3>Versão para os Pequenininhos</h3><p>Cada noite em duas frases e um gesto, para crianças de 2 a 4 anos.</p></div></article>
+      <article class="bon"><button type="button" class="js-zoom" data-src="img/pg-bonus-certificado.webp" data-alt="Certificado da Noite de Natal"><img src="img/pg-bonus-certificado.webp" width="1200" height="848" loading="lazy" alt="Certificado: Nosso presépio está completo!"></button>
+        <div class="tx"><span class="tag">Bônus 4</span><h3>Certificado da Noite de Natal</h3><p>“Nosso presépio está completo!”, com espaço para o nome da criança. Vira lembrança e foto.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA -->
+<div class="faixa"><div class="wrap"><p><span>História para contar.</span> <span>Presépio para montar.</span> <span>Lembrança para guardar.</span></p></div></div>
+
+<!-- FICHA TÉCNICA -->
+<section class="ficha">
+  <div class="wrap" style="max-width:860px">
+    <p class="eyebrow">Ficha técnica</p>
+    <h2>Antes de comprar, confira</h2>
+    <dl>
+      <div class="row"><dt>Formato</dt><dd>PDF em A4, para imprimir em casa, na gráfica ou na papelaria.</dd></div>
+      <div class="row"><dt>Páginas</dt><dd>68 páginas: presépio com 17, devocional com 38 e bônus com 13.</dd></div>
+      <div class="row"><dt>Devocional</dt><dd>24 dias, com 24 orações e 12 atividades.</dd></div>
+      <div class="row"><dt>Peças</dt><dd>12 peças em duas versões: colorida e para colorir.</dd></div>
+      <div class="row"><dt>Idade</dt><dd>De 3 a 9 anos, com um adulto junto. O Bônus 3 atende crianças de 2 a 4 anos.</dd></div>
+      <div class="row"><dt>Você vai precisar</dt><dd>Impressora, papel (180 g recomendado para as peças), tesoura sem ponta e, se quiser, cola e lápis de cor.</dd></div>
+      <div class="row"><dt>Histórias</dt><dd>Adaptadas para crianças a partir de Lucas 1-2 e Mateus 1-2, em linguagem cristã para qualquer igreja. O que vem da tradição é avisado no cartão.</dd></div>
+      <div class="row"><dt>Não acompanha</dt><dd>Impressão, papel ou qualquer material físico. Nada é enviado pelo correio.</dd></div>
+      <div class="row"><dt>Uso</dt><dd>Familiar, com impressões ilimitadas para a sua casa.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="oferta" id="oferta">
+  <div class="wrap">
+    <div class="offer">
+      <p class="eyebrow" style="justify-content:center">Presépio Noite a Noite</p>
+      <h2>Devocional + presépio + 4 bônus</h2>
+      <img src="img/presepio-completo.webp" width="1600" height="1067" loading="lazy" alt="Presépio completo montado com as peças do kit">
+      <ul>
+        <li>Devocional em família de 24 dias até o Natal</li>
+        <li>24 orações e 12 atividades</li>
+        <li>12 cartões-noite com a história do nascimento de Jesus</li>
+        <li>12 peças coloridas com aba para ficar em pé</li>
+        <li>As 12 peças para colorir</li>
+        <li>Cenário de Belém, colorido e para colorir</li>
+        <li>Roteiro e caminho até a manjedoura</li>
+        <li>Guia de uso e calendário de 24 dias</li>
+        <li class="b"><b>Bônus:</b> A História do Natal para Colorir</li>
+        <li class="b"><b>Bônus:</b> Cartões da Ceia</li>
+        <li class="b"><b>Bônus:</b> Versão para os Pequenininhos</li>
+        <li class="b"><b>Bônus:</b> Certificado da Noite de Natal</li>
+      </ul>
+      <p class="price"><small>R$</small>14,99</p>
+      <p class="once">Pagamento único, sem mensalidade. Dá cerca de R$ 0,62 por dia de devocional.</p>
+      <a class="cta wide js-checkout" data-pos="oferta" href="#oferta">Quero montar o meu presépio <span class="arrow" aria-hidden="true">→</span></a>
+      <p class="pay">Pagamento processado pela Cakto. Os arquivos chegam no seu e-mail depois da confirmação do pagamento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="garantia" style="padding-top:0">
+  <div class="wrap">
+    <div class="box">
+      <div class="seal" aria-hidden="true"><div><b>7</b><span>dias</span></div></div>
+      <div>
+        <h3>7 dias para conhecer com calma</h3>
+        <p>Receba os arquivos e veja tudo com calma. Se o kit não for o que você esperava, peça o reembolso em até 7 dias depois da compra, pela Cakto, e receba de volta o valor pago.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" style="padding-top:0">
+  <div class="wrap" style="max-width:820px">
+    <p class="eyebrow">Antes de começar</p>
+    <h2>Suas dúvidas, respondidas</h2>
+    <div class="faq-list">
+      <details><summary>Vou receber algo em casa?</summary><p>Não. O produto é 100% digital: você recebe os arquivos em PDF para imprimir. Nada é enviado pelo correio.</p></details>
+      <details><summary>Como recebo os arquivos?</summary><p>Depois da confirmação do pagamento, o acesso chega no e-mail usado na compra. Confira também as caixas de spam e de promoções.</p></details>
+      <details><summary>Preciso ter impressora em casa?</summary><p>Não. Você pode levar o arquivo a uma gráfica ou papelaria e imprimir lá.</p></details>
+      <details><summary>Que papel devo usar?</summary><p>Para as peças, um papel mais grosso (180 g) deixa o presépio firme. Com sulfite comum, cole a folha num papelão fino, como o de uma caixa de cereal, antes de recortar. Para os cartões, sulfite comum serve.</p></details>
+      <details><summary>Para qual idade é?</summary><p>De 3 a 9 anos, com um adulto lendo e recortando junto. Para crianças de 2 a 4 anos, use o bônus Versão para os Pequenininhos.</p></details>
+      <details><summary>Serve para católicos e evangélicos?</summary><p>Sim. As histórias seguem os textos de Lucas e Mateus em linguagem cristã para qualquer igreja. Quando um detalhe vem da tradição, como o boi e o jumentinho, o cartão avisa.</p></details>
+      <details><summary>E se eu comprar perto do Natal?</summary><p>Você escolhe o ritmo: 24 dias, 12 noites, 6 noites ou uma noite especial. Dá para começar em qualquer dia até o Natal.</p></details>
+      <details><summary>Posso usar na escola ou na igreja?</summary><p>Esta versão é para uso da sua família. O uso com turmas ou grupos precisa de uma licença própria.</p></details>
+      <details><summary>O devocional serve para católicos e evangélicos?</summary><p>Sim. Os devocionais citam a Bíblia pela referência e contam com palavras simples para crianças, sem práticas de uma igreja só.</p></details>
+      <details><summary>Tem mensalidade?</summary><p>Não. É um pagamento único de R$ 14,99.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <h2>Vamos preparar um Natal com Jesus no centro?</h2>
+    <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
+    <a class="cta js-checkout" data-pos="final" href="#oferta">Quero o meu devocional com presépio por R$ 14,99 <span class="arrow" aria-hidden="true">→</span></a>
+    <p class="trust">Arquivos para imprimir · Garantia de 7 dias · Pagamento pela Cakto</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p id="seller"></p>
+    <p>Presépio Noite a Noite · produto digital para uso familiar.</p>
+  </div>
+</footer>
+
+<dialog id="zoom" aria-label="Imagem ampliada">
+  <img id="zoomImg" src="" alt="">
+  <button type="button" class="close" id="zoomClose">Fechar</button>
+</dialog>
+
+<script>
+/* ===== Configuração: preencha antes de publicar ===== */
+const CONFIG = {
+  checkoutUrl: "",            // link do checkout da Cakto do produto de R$ 14,99
+  pixelId: "",                // ID do Pixel da Meta (opcional)
+  seller: { nome: "", documento: "", email: "" }
+};
+
+/* ===== Mensuração (sem dados pessoais) ===== */
+window.dataLayer = window.dataLayer || [];
+function track(event, data) {
+  const payload = Object.assign({ event }, data || {});
+  window.dataLayer.push(payload);
+  if (typeof window.fbq === "function") window.fbq("trackCustom", event, data || {});
+}
+if (CONFIG.pixelId) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq("init", CONFIG.pixelId); fbq("track", "PageView");
+}
+track("landing_view", { source: new URLSearchParams(location.search).get("from") || "direto" });
+
+/* ===== Checkout: repassa UTMs permitidas ===== */
+(function () {
+  const allowed = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","src","sck"];
+  const here = new URLSearchParams(location.search);
+  function checkoutHref() {
+    if (!CONFIG.checkoutUrl) return "#oferta";
+    const u = new URL(CONFIG.checkoutUrl);
+    allowed.forEach(k => { if (here.get(k)) u.searchParams.set(k, here.get(k)); });
+    return u.toString();
+  }
+  document.querySelectorAll(".js-checkout").forEach(a => {
+    a.href = checkoutHref();
+    a.addEventListener("click", () => track("cta_click", { position: a.dataset.pos }));
+  });
+  const s = CONFIG.seller;
+  const seller = document.getElementById("seller");
+  if (s.nome) seller.textContent = [s.nome, s.documento, s.email].filter(Boolean).join(" · ");
+  else seller.innerHTML = '<span class="pend">Dados do vendedor: preencher antes de publicar.</span>';
+  if (!CONFIG.checkoutUrl || !s.nome) document.getElementById("review").hidden = false;
+})();
+
+/* ===== Demonstração noite a noite ===== */
+(function () {
+  const NOITES = [
+    ["01-maria","Maria"],["02-anjo-gabriel","Anjo Gabriel"],["03-jose","José"],["04-jumentinho","Jumentinho"],
+    ["05-estabulo","Estábulo"],["06-boi-ovelha","Boi e ovelhinha"],["07-manjedoura","Manjedoura"],["08-pastores","Pastores"],
+    ["09-estrela","Estrela"],["10-sabios","Sábios do Oriente"],["11-anjos","Anjos"],["12-menino-jesus","Menino Jesus"]
+  ];
+  const POS = {"09-estrela":[0,37.0,9.934,25.938],"05-estabulo":[1,26.312,37.395,47.875],"10-sabios":[2,1.938,55.295,22.625],"08-pastores":[3,79.375,53.327,17.75],"06-boi-ovelha":[4,33.375,67.573,17.688],"11-anjos":[5,69.688,15.464,12.562],"02-anjo-gabriel":[6,23.188,16.026,7.562],"04-jumentinho":[7,16.312,68.885,17.812],"01-maria":[8,27.062,59.513,13.375],"03-jose":[9,59.938,57.919,13.562],"07-manjedoura":[10,41.188,80.037,18.125],"12-menino-jesus":[11,45.875,77.507,8.25]};
+  const stage = document.getElementById("stage"), dots = document.getElementById("dots");
+  const nEl = document.getElementById("noiteN"), nomeEl = document.getElementById("noiteNome");
+  const playBtn = document.getElementById("play");
+  const imgs = NOITES.map(([id, nome], i) => {
+    const [z, l, t, w] = POS[id];
+    const im = document.createElement("img");
+    im.src = "img/peca-" + id + ".webp"; im.alt = ""; im.decoding = "async";
+    im.style.cssText = `left:${l}%;top:${t}%;width:${w}%;z-index:${z}`;
+    stage.appendChild(im);
+    const d = document.createElement("span"); dots.appendChild(d);
+    return { im, d, nome };
+  });
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let noite = 12, timer = null, playing = !reduce;
+  function show(n) {
+    noite = n;
+    imgs.forEach((o, i) => { o.im.classList.toggle("off", i >= n); o.d.classList.toggle("on", i < n); });
+    nEl.textContent = "Noite " + n; nomeEl.textContent = imgs[n - 1].nome;
+  }
+  function tick() { show(noite >= 12 ? 1 : noite + 1); timer = setTimeout(tick, noite === 12 ? 3200 : 1300); }
+  function play() { playing = true; playBtn.textContent = "Pausar"; playBtn.setAttribute("aria-label","Pausar a demonstração"); clearTimeout(timer); timer = setTimeout(tick, 600); }
+  function pause() { playing = false; playBtn.textContent = "Tocar"; playBtn.setAttribute("aria-label","Tocar a demonstração"); clearTimeout(timer); }
+  playBtn.addEventListener("click", () => playing ? pause() : play());
+  document.getElementById("prev").addEventListener("click", () => { pause(); show(noite > 1 ? noite - 1 : 12); });
+  document.getElementById("next").addEventListener("click", () => { pause(); show(noite < 12 ? noite + 1 : 1); });
+  show(12);
+  if (reduce) { pause(); }
+  else if ("IntersectionObserver" in window) {
+    let started = false;
+    new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && !started && playing) { started = true; show(1); play(); track("demo_view"); }
+    }), { threshold: .45 }).observe(stage);
+    playBtn.textContent = "Pausar";
+  }
+})();
+
+/* ===== Ampliar imagens ===== */
+(function () {
+  const dlg = document.getElementById("zoom"), im = document.getElementById("zoomImg");
+  document.querySelectorAll(".js-zoom").forEach(b => b.addEventListener("click", () => {
+    im.src = b.dataset.src; im.alt = b.dataset.alt || "";
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+  }));
+  document.getElementById("zoomClose").addEventListener("click", () => dlg.close ? dlg.close() : dlg.removeAttribute("open"));
+  dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+})();
+</script>
+</body>
+</html>
