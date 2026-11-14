@@ -158,6 +158,8 @@ section{padding:72px 0}
 .offer li.b b{color:var(--vinho)}
 .offer .price{font-family:var(--display);font-weight:800;font-size:64px;color:var(--verde);line-height:1;margin-top:6px}
 .offer .price small{font-size:26px;vertical-align:top;position:relative;top:10px;margin-right:4px}
+.offer .launch{display:inline-block;background:#F8EDEF;color:var(--vinho);font-size:14.5px;padding:8px 14px;border-radius:999px;margin-top:4px}
+.offer .launch[hidden],.js-launch[hidden]{display:none}
 .offer .once{color:var(--tinta-2);font-size:15px;margin:6px 0 20px}
 .offer .pay{font-size:13.5px;color:var(--tinta-2);margin-top:14px}
 
@@ -215,7 +217,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 </head>
 <body>
 
-<div class="review" id="review" hidden>Versão de revisão: o checkout da Cakto e os dados do vendedor ainda não foram conectados. Os botões levam para a oferta.</div>
+<div class="review" id="review" hidden>Versão de revisão: faltam os dados do vendedor (nome, CPF/CNPJ e e-mail de suporte) no rodapé.</div>
 
 <!-- HERO -->
 <header class="hero" id="topo">
@@ -232,7 +234,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
       <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
       <div class="hero-actions">
         <a class="cta js-checkout" data-pos="hero" href="#oferta">Quero montar o meu presépio <span class="arrow" aria-hidden="true">→</span></a>
-        <p class="price-line"><b>R$ 14,99</b> · pagamento único · PDF para imprimir em casa</p>
+        <p class="price-line"><b>R$ 14,99</b> · pagamento único · PDF para imprimir em casa<span class="js-launch" hidden><br>Preço de lançamento até <span class="js-ate"></span>. Depois, <span class="js-cheio"></span>.</span></p>
         <a class="more" href="#materiais">Veja tudo o que você vai receber ↓</a>
       </div>
     </div>
@@ -407,6 +409,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
         <li class="b"><b>Bônus:</b> Versão para os Pequenininhos</li>
         <li class="b"><b>Bônus:</b> Certificado da Noite de Natal</li>
       </ul>
+      <p class="launch js-launch" hidden>Preço de lançamento até <b class="js-ate"></b>. Depois, o kit passa a custar <b class="js-cheio"></b>.</p>
       <p class="price"><small>R$</small>14,99</p>
       <p class="once">Pagamento único, sem mensalidade. Dá cerca de R$ 0,62 por dia de devocional.</p>
       <a class="cta wide js-checkout" data-pos="oferta" href="#oferta">Quero montar o meu presépio <span class="arrow" aria-hidden="true">→</span></a>
@@ -474,7 +477,9 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 <script>
 /* ===== Configuração: preencha antes de publicar ===== */
 const CONFIG = {
-  checkoutUrl: "",            // link do checkout da Cakto do produto de R$ 14,99
+  checkoutUrl: "https://pay.cakto.com.br/6e9uajm_1320211",
+  // Preço de lançamento: só use se o valor cheio for aplicado de verdade na Cakto depois desta data
+  lancamento: { ate: "2026-11-30", ateTexto: "30/11", precoCheio: "R$ 37,99" },
   pixelId: "",                // ID do Pixel da Meta (opcional)
   seller: { nome: "", documento: "", email: "" }
 };
@@ -511,6 +516,12 @@ track("landing_view", { source: new URLSearchParams(location.search).get("from")
   if (s.nome) seller.textContent = [s.nome, s.documento, s.email].filter(Boolean).join(" · ");
   else seller.innerHTML = '<span class="pend">Dados do vendedor: preencher antes de publicar.</span>';
   if (!CONFIG.checkoutUrl || !s.nome) document.getElementById("review").hidden = false;
+  const L = CONFIG.lancamento;
+  if (L && L.ate && new Date() <= new Date(L.ate + "T23:59:59-03:00")) {
+    document.querySelectorAll(".js-ate").forEach(e => e.textContent = L.ateTexto);
+    document.querySelectorAll(".js-cheio").forEach(e => e.textContent = L.precoCheio);
+    document.querySelectorAll(".js-launch").forEach(e => e.hidden = false);
+  }
 })();
 
 /* ===== Demonstração noite a noite ===== */
