@@ -469,7 +469,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 </footer>
 
 <dialog id="zoom" aria-label="Imagem ampliada">
-  <img id="zoomImg" src="" alt="">
+  <img id="zoomImg" alt="">
   <button type="button" class="close" id="zoomClose">Fechar</button>
 </dialog>
 
@@ -492,6 +492,7 @@ function track(event, data) {
 if (CONFIG.pixelId) {
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq("init", CONFIG.pixelId); fbq("track", "PageView");
+  fbq("track", "ViewContent", { content_name: "Presepio Noite a Noite", content_ids: ["6e9uajm_1320211"], content_type: "product", value: 14.99, currency: "BRL" });
 }
 track("landing_view", { source: new URLSearchParams(location.search).get("from") || "direto" });
 
