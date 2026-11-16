@@ -57,10 +57,10 @@ section{padding:72px 0}
 @keyframes twinkle{0%,100%{opacity:.85}50%{opacity:.3}}
 .hero .wrap{position:relative}
 .hero .eyebrow{color:var(--ouro-claro)}
-.hero h1{font-size:clamp(42px,10vw,76px);color:#FFF6E6}
+.hero h1{font-size:clamp(34px,4.6vw,56px);color:#FFF6E6}
 .hero .lead{color:#E6DCCB;margin-top:16px;font-size:clamp(18px,2.6vw,21px)}
 .tagline{font-family:var(--display);font-weight:600;font-style:italic;color:var(--ouro-claro);font-size:clamp(19px,3vw,24px);margin-top:14px}
-.hero-grid{display:grid;gap:28px;align-items:end}
+.hero-grid{display:grid;gap:28px;align-items:center}
 .hero-actions{display:flex;flex-direction:column;gap:14px;margin-top:26px;align-items:flex-start}
 .price-line{font-size:15px;color:#D9CDB8}
 .price-line b{color:#FFF6E6;font-size:17px}
@@ -69,11 +69,45 @@ section{padding:72px 0}
 .hero figure img{border-radius:18px 18px 0 0;border:3px solid var(--ouro);border-bottom:0}
 .hero figcaption{position:absolute;left:12px;bottom:10px;background:rgba(30,42,74,.82);color:#EADFCB;font-size:12px;padding:5px 10px;border-radius:999px}
 
+/* HERO mobile: produto acima da dobra */
+.hero-shot{display:none}
+@media (max-width:759px){
+  .hero{padding-top:26px}
+  .hero h1{font-size:clamp(30px,8.6vw,40px)}
+  .hero .lead{font-size:16.5px;margin-top:10px}
+  .hero .tagline{display:none}
+  .hero-shot{display:block;margin:14px 0 0}
+  .hero-shot img{border-radius:14px;border:3px solid var(--ouro)}
+  .hero-actions{margin-top:16px;gap:10px}
+  .hero-grid > figure{display:none}
+  .hero .more{display:none}
+}
+/* POR DENTRO (prévia logo após o topo) */
+.dentro{background:var(--creme);padding:34px 0 30px}
+.dentro h2{font-size:clamp(22px,5.4vw,30px)}
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 2px 8px;margin:0 -2px;-webkit-overflow-scrolling:touch}
+.strip figure{margin:0;flex:0 0 42%;scroll-snap-align:start}
+.strip button{display:block;width:100%;border:0;padding:0;background:none;cursor:zoom-in;border-radius:10px;overflow:hidden;box-shadow:0 6px 16px rgba(43,33,24,.16)}
+.strip figcaption{font-size:13px;color:var(--tinta-2);margin-top:6px;text-align:center}
+.strip-hint{font-size:13px;color:var(--tinta-2);margin-top:4px}
+@media (min-width:760px){.strip figure{flex:1 1 0}.strip-hint{display:none}}
+/* CTA no meio */
+.mid-cta{margin-top:28px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.mid-cta small{color:var(--tinta-2);font-size:14px}
+/* Barra fixa de compra */
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(30,42,74,.97);backdrop-filter:blur(6px);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;box-shadow:0 -8px 24px rgba(0,0,0,.25);transform:translateY(110%);transition:transform .25s ease}
+.buybar.on{transform:none}
+.buybar .bp{color:#FFF6E6;line-height:1.15;font-size:12.5px}
+.buybar .bp b{display:block;font-family:var(--display);font-size:22px;color:var(--ouro-claro)}
+.buybar .cta{flex:1;min-height:50px;padding:12px 16px;font-size:16.5px}
+body.has-buybar footer{padding-bottom:96px}
+@media (min-width:760px){.buybar{display:none}}
 /* SENTIDO */
 .sentido{background:var(--papel)}
 .sentido .wrap{display:grid;gap:22px;max-width:820px}
 .sentido p.big{font-family:var(--display);font-weight:600;font-size:clamp(20px,3vw,24px);color:var(--vinho)}
 
+@media (max-width:759px){ section{padding:52px 0} }
 /* COMO FUNCIONA */
 .como-grid{display:grid;gap:32px;margin-top:30px}
 .stage-box{background:var(--noite);border-radius:20px;padding:12px;box-shadow:0 18px 40px rgba(30,42,74,.25)}
@@ -127,11 +161,13 @@ section{padding:72px 0}
 
 /* BÔNUS */
 .bonus{background:var(--papel)}
-.bonus-grid{display:grid;gap:16px;margin-top:28px}
+.bonus-grid{display:grid;gap:12px;margin-top:24px;grid-template-columns:1fr 1fr}
 .bon{background:#fff;border:1px solid var(--linha);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
 .bon button{display:block;width:100%;border:0;padding:0;background:#F1E6D3;cursor:zoom-in}
 .bon button img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top}
-.bon .tx{padding:16px 18px 18px}
+.bon .tx{padding:12px 12px 14px}
+.bon h3{font-size:16.5px}
+@media (max-width:759px){.bon p{font-size:14px}}
 .bon .tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--vinho);margin-bottom:6px}
 .bon p{color:var(--tinta-2);font-size:15.5px;margin-top:6px}
 
@@ -142,6 +178,8 @@ section{padding:72px 0}
 .faixa span:nth-child(2){color:var(--ouro-claro)}
 
 /* FICHA */
+details.ficha dl{margin:0 18px 14px;border-top:0}
+details.ficha .row:last-child{border-bottom:0}
 .ficha dl{display:grid;grid-template-columns:1fr;margin:26px 0 0;border-top:1px solid var(--linha)}
 .ficha .row{display:grid;grid-template-columns:1fr;gap:2px;padding:14px 0;border-bottom:1px solid var(--linha)}
 .ficha dt{font-weight:800;color:var(--verde);font-size:15px}
@@ -236,9 +274,10 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
   </div>
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <p class="eyebrow">Para viver em família, noite a noite</p>
-      <h1>Presépio Noite a Noite</h1>
-      <p class="lead">Um devocional em família de 24 dias até o Natal, com um presépio de papel que vocês montam peça por peça enquanto contam às crianças a história do nascimento de Jesus.</p>
+      <p class="eyebrow">Presépio Noite a Noite</p>
+      <h1>O Natal com Jesus no centro, noite a noite, com as crianças</h1>
+      <figure class="hero-shot"><img src="img/presepio-completo.webp" width="1600" height="1067" alt="Presépio montado com as 12 peças do kit sobre o cenário de Belém à noite."></figure>
+      <p class="lead">Devocional em família de 24 dias com um presépio de papel que vocês montam peça por peça, contando às crianças a história do nascimento de Jesus.</p>
       <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
       <div class="hero-actions">
         <a class="cta js-checkout" data-pos="hero" href="#oferta">Quero montar o meu presépio <span class="arrow" aria-hidden="true">→</span></a>
@@ -254,6 +293,21 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 </header>
 
 <main>
+<!-- POR DENTRO -->
+<section class="dentro" id="por-dentro">
+  <div class="wrap">
+    <p class="eyebrow">Páginas reais do kit</p>
+    <h2>Veja por dentro antes de comprar</h2>
+    <div class="strip">
+      <figure><button type="button" class="js-zoom" data-src="img/pg-dev-dia3.webp" data-alt="Dia 3 do devocional"><img src="img/pg-dev-dia3.webp" width="900" height="1273" loading="lazy" alt="Página do dia 3 do devocional: Dizer sim a Deus"></button><figcaption>Um dia de devocional</figcaption></figure>
+      <figure><button type="button" class="js-zoom" data-src="img/pg-pecas-cor.webp" data-alt="Peças coloridas"><img src="img/pg-pecas-cor.webp" width="900" height="1273" loading="lazy" alt="Folha de peças coloridas para recortar"></button><figcaption>Peças para recortar</figcaption></figure>
+      <figure><button type="button" class="js-zoom" data-src="img/pg-ativ-caca.webp" data-alt="Caça-palavras"><img src="img/pg-ativ-caca.webp" width="900" height="1273" loading="lazy" alt="Atividade de caça-palavras da história"></button><figcaption>Atividades</figcaption></figure>
+      <figure><button type="button" class="js-zoom" data-src="img/pg-dev-calendario.webp" data-alt="Calendário de 24 dias"><img src="img/pg-dev-calendario.webp" width="900" height="1273" loading="lazy" alt="Calendário dos 24 dias até o Natal"></button><figcaption>Calendário de 24 dias</figcaption></figure>
+    </div>
+    <p class="strip-hint">Arraste para o lado · toque para ampliar</p>
+  </div>
+</section>
+
 <!-- SENTIDO -->
 <section class="sentido">
   <div class="wrap">
@@ -297,23 +351,11 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
         </figure>
       </div>
     </div>
+    <div class="mid-cta"><a class="cta js-checkout" data-pos="como" href="#oferta">Quero montar o meu presépio <span class="arrow" aria-hidden="true">→</span></a><small>R$ 14,99 · pagamento único · PDF para imprimir</small></div>
   </div>
 </section>
 
-<!-- DEVOCIONAL -->
-<section class="devoc" id="devocional">
-  <div class="wrap">
-    <p class="eyebrow">Devocional em família</p>
-    <h2>24 dias de encontro até o Natal</h2>
-    <p class="lead" style="margin-top:14px">Nos dias pares, uma parte da história e uma peça nova no presépio. Nos dias ímpares, um devocional curto e uma atividade. Todo dia tem uma pergunta para conversar e uma oração.</p>
-    <div class="dev-grid">
-      <figure><button type="button" class="js-zoom" data-src="img/pg-dev-calendario.webp" data-alt="Calendário de 24 dias"><img src="img/pg-dev-calendario.webp" width="900" height="1273" loading="lazy" alt="Calendário dos 24 dias até o Natal"></button><figcaption>Calendário dos 24 dias</figcaption></figure>
-      <figure><button type="button" class="js-zoom" data-src="img/pg-dev-dia3.webp" data-alt="Dia 3 do devocional"><img src="img/pg-dev-dia3.webp" width="900" height="1273" loading="lazy" alt="Página do dia 3: Dizer sim a Deus"></button><figcaption>Um dia de devocional</figcaption></figure>
-      <figure><button type="button" class="js-zoom" data-src="img/pg-ativ-caca.webp" data-alt="Caça-palavras"><img src="img/pg-ativ-caca.webp" width="900" height="1273" loading="lazy" alt="Atividade de caça-palavras da história"></button><figcaption>Caça-palavras da história</figcaption></figure>
-      <figure><button type="button" class="js-zoom" data-src="img/pg-ativ-memoria.webp" data-alt="Jogo da memória"><img src="img/pg-ativ-memoria.webp" width="900" height="1273" loading="lazy" alt="Jogo da memória com as peças do presépio"></button><figcaption>Jogo da memória</figcaption></figure>
-    </div>
-  </div>
-</section>
+
 
 <!-- MATERIAIS -->
 <section class="materiais" id="materiais">
@@ -339,22 +381,11 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
         <div><span class="num">08</span><h3>Guia de uso</h3><p>Como imprimir, que papel usar e os ritmos para começar: 24 dias, 12 noites, 6 noites ou uma noite especial.</p></div></li>
     </ul>
     <p class="disclaimer">Imagens de páginas reais do kit. Produto digital em PDF A4: impressão, papel e materiais não estão inclusos.</p>
+    <div class="mid-cta"><a class="cta js-checkout" data-pos="materiais" href="#oferta">Quero tudo isso por R$ 14,99 <span class="arrow" aria-hidden="true">→</span></a><small>+ 4 bônus · pagamento único</small></div>
   </div>
 </section>
 
-<!-- RITMOS -->
-<section class="ritmos">
-  <div class="wrap">
-    <p class="eyebrow">Começa quando você quiser</p>
-    <h2>Comece em 1º de dezembro ou no dia que der.</h2>
-    <div class="ritmos-grid">
-      <div class="ritmo"><p class="n">24</p><h3>dias</h3><p>O devocional completo: comece em 1º de dezembro e, na véspera de Natal, o Menino Jesus chega à manjedoura.</p></div>
-      <div class="ritmo"><p class="n">12</p><h3>noites</h3><p>Uma peça por noite. Quem começa em 13 de dezembro termina na véspera de Natal.</p></div>
-      <div class="ritmo"><p class="n">6</p><h3>noites</h3><p>Duas peças por noite, para quem começar mais perto do Natal.</p></div>
-      <div class="ritmo"><p class="n">1</p><h3>noite especial</h3><p>Leiam os cartões em sequência e montem tudo de uma vez, no dia que for melhor para vocês.</p></div>
-    </div>
-  </div>
-</section>
+
 
 <!-- BÔNUS -->
 <section class="bonus" id="bonus">
@@ -374,27 +405,9 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
   </div>
 </section>
 
-<!-- FAIXA -->
-<div class="faixa"><div class="wrap"><p><span>História para contar.</span> <span>Presépio para montar.</span> <span>Lembrança para guardar.</span></p></div></div>
 
-<!-- FICHA TÉCNICA -->
-<section class="ficha">
-  <div class="wrap" style="max-width:860px">
-    <p class="eyebrow">Ficha técnica</p>
-    <h2>Antes de comprar, confira</h2>
-    <dl>
-      <div class="row"><dt>Formato</dt><dd>PDF em A4, para imprimir em casa, na gráfica ou na papelaria.</dd></div>
-      <div class="row"><dt>Páginas</dt><dd>68 páginas: presépio com 17, devocional com 38 e bônus com 13.</dd></div>
-      <div class="row"><dt>Devocional</dt><dd>24 dias, com 24 orações e 12 atividades.</dd></div>
-      <div class="row"><dt>Peças</dt><dd>12 peças em duas versões: colorida e para colorir.</dd></div>
-      <div class="row"><dt>Idade</dt><dd>De 3 a 9 anos, com um adulto junto. O Bônus 3 atende crianças de 2 a 4 anos.</dd></div>
-      <div class="row"><dt>Você vai precisar</dt><dd>Impressora, papel (180 g recomendado para as peças), tesoura sem ponta e, se quiser, cola e lápis de cor.</dd></div>
-      <div class="row"><dt>Histórias</dt><dd>Adaptadas para crianças a partir de Lucas 1-2 e Mateus 1-2, em linguagem cristã para qualquer igreja. O que vem da tradição é avisado no cartão.</dd></div>
-      <div class="row"><dt>Não acompanha</dt><dd>Impressão, papel ou qualquer material físico. Nada é enviado pelo correio.</dd></div>
-      <div class="row"><dt>Uso</dt><dd>Familiar, com impressões ilimitadas para a sua casa.</dd></div>
-    </dl>
-  </div>
-</section>
+
+
 
 <!-- OFERTA -->
 <section class="oferta" id="oferta">
@@ -447,15 +460,25 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     <p class="eyebrow">Antes de começar</p>
     <h2>Suas dúvidas, respondidas</h2>
     <div class="faq-list">
+      <details class="ficha"><summary>Ficha técnica: formato, páginas, idade e o que você vai precisar</summary><dl>
+      <div class="row"><dt>Formato</dt><dd>PDF em A4, para imprimir em casa, na gráfica ou na papelaria.</dd></div>
+      <div class="row"><dt>Páginas</dt><dd>68 páginas: presépio com 17, devocional com 38 e bônus com 13.</dd></div>
+      <div class="row"><dt>Devocional</dt><dd>24 dias, com 24 orações e 12 atividades.</dd></div>
+      <div class="row"><dt>Peças</dt><dd>12 peças em duas versões: colorida e para colorir.</dd></div>
+      <div class="row"><dt>Idade</dt><dd>De 3 a 9 anos, com um adulto junto. O Bônus 3 atende crianças de 2 a 4 anos.</dd></div>
+      <div class="row"><dt>Você vai precisar</dt><dd>Impressora, papel (180 g recomendado para as peças), tesoura sem ponta e, se quiser, cola e lápis de cor.</dd></div>
+      <div class="row"><dt>Histórias</dt><dd>Adaptadas para crianças a partir de Lucas 1-2 e Mateus 1-2, em linguagem cristã para qualquer igreja. O que vem da tradição é avisado no cartão.</dd></div>
+      <div class="row"><dt>Não acompanha</dt><dd>Impressão, papel ou qualquer material físico. Nada é enviado pelo correio.</dd></div>
+      <div class="row"><dt>Uso</dt><dd>Familiar, com impressões ilimitadas para a sua casa.</dd></div>
+    </dl></details>
       <details><summary>Vou receber algo em casa?</summary><p>Não. O produto é 100% digital: você recebe os arquivos em PDF para imprimir. Nada é enviado pelo correio.</p></details>
       <details><summary>Como recebo os arquivos?</summary><p>Depois da confirmação do pagamento, o acesso chega no e-mail usado na compra. Confira também as caixas de spam e de promoções.</p></details>
       <details><summary>Preciso ter impressora em casa?</summary><p>Não. Você pode levar o arquivo a uma gráfica ou papelaria e imprimir lá.</p></details>
       <details><summary>Que papel devo usar?</summary><p>Para as peças, um papel mais grosso (180 g) deixa o presépio firme. Com sulfite comum, cole a folha num papelão fino, como o de uma caixa de cereal, antes de recortar. Para os cartões, sulfite comum serve.</p></details>
       <details><summary>Para qual idade é?</summary><p>De 3 a 9 anos, com um adulto lendo e recortando junto. Para crianças de 2 a 4 anos, use o bônus Versão para os Pequenininhos.</p></details>
       <details><summary>Serve para católicos e evangélicos?</summary><p>Sim. As histórias seguem os textos de Lucas e Mateus em linguagem cristã para qualquer igreja. Quando um detalhe vem da tradição, como o boi e o jumentinho, o cartão avisa.</p></details>
-      <details><summary>E se eu comprar perto do Natal?</summary><p>Você escolhe o ritmo: 24 dias, 12 noites, 6 noites ou uma noite especial. Dá para começar em qualquer dia até o Natal.</p></details>
+      <details><summary>E se eu comprar perto do Natal?</summary><p>Você escolhe o ritmo: 24 dias (a partir de 1º de dezembro), 12 noites (a partir de 13/12), 6 noites (duas peças por noite) ou uma noite especial, montando tudo de uma vez. Dá para começar em qualquer dia até o Natal.</p></details>
       <details><summary>Posso usar na escola ou na igreja?</summary><p>Esta versão é para uso da sua família. O uso com turmas ou grupos precisa de uma licença própria.</p></details>
-      <details><summary>O devocional serve para católicos e evangélicos?</summary><p>Sim. Os devocionais citam a Bíblia pela referência e contam com palavras simples para crianças, sem práticas de uma igreja só.</p></details>
       <details><summary>Tem mensalidade?</summary><p>Não. É um pagamento único de R$ 14,99.</p></details>
     </div>
   </div>
@@ -471,6 +494,8 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     <p class="trust">Arquivos para imprimir · Garantia de 7 dias · Pagamento pela Cakto</p>
   </div>
 </section>
+
+<div class="buybar" id="buybar" aria-hidden="true"><p class="bp"><b>R$ 14,99</b>pagamento único</p><a class="cta js-checkout" data-pos="barra" href="#oferta" tabindex="-1">Quero o meu <span class="arrow" aria-hidden="true">→</span></a></div>
 
 <footer>
   <div class="wrap">
@@ -541,6 +566,20 @@ track("landing_view", { source: new URLSearchParams(location.search).get("from")
     };
     tick(); const timer = setInterval(tick, 1000);
   }
+})();
+
+/* ===== Barra fixa de compra (celular) ===== */
+(function () {
+  const bar = document.getElementById("buybar"); if (!bar) return;
+  document.body.classList.add("has-buybar");
+  const hero = document.querySelector(".hero .hero-actions");
+  const hideAt = [document.getElementById("oferta"), document.querySelector(".final")].filter(Boolean);
+  let pastHero = false, nearOffer = false;
+  const upd = () => { const on = pastHero && !nearOffer; bar.classList.toggle("on", on); bar.setAttribute("aria-hidden", on ? "false" : "true"); bar.querySelector("a").tabIndex = on ? 0 : -1; };
+  new IntersectionObserver(e => { pastHero = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; upd(); }).observe(hero);
+  const vis = new Set();
+  const io = new IntersectionObserver(es => { es.forEach(x => x.isIntersecting ? vis.add(x.target) : vis.delete(x.target)); nearOffer = vis.size > 0; upd(); }, { threshold: 0.15 });
+  hideAt.forEach(el => io.observe(el));
 })();
 
 /* ===== Demonstração noite a noite ===== */
