@@ -125,7 +125,11 @@ body.has-buybar footer{padding-bottom:96px}
 .ad-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
 .ad-card{border-radius:18px;overflow:hidden;position:relative;min-height:330px;display:flex;flex-direction:column;justify-content:flex-end;padding:52px 14px 16px;border:3px solid var(--ouro)}
 .ad-card .lbl{position:absolute;top:12px;left:12px;font-size:12px;font-weight:900;letter-spacing:.12em;padding:6px 10px;border-radius:8px;color:#fff}
-.ad-antes{background:linear-gradient(180deg,#3a3f4a,#22252c);color:#E6E6E6}
+.ad-antes{background:#22252c url(img/antes.webp) 38% 58%/cover no-repeat;color:#fff}
+.ad-antes::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 68%,rgba(25,22,22,.92));}
+@media (max-width:759px){.ad-card{min-height:370px}.ad-card .big{font-size:16.5px}}
+@media (min-width:760px){.ad-antes{background-position:38% 42%}}
+.ad-depois{background-position:center 40%}
 .ad-antes .lbl{background:#8E2A2A}
 .ad-antes ul{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:10px;font-size:14px}
 .ad-antes li{display:flex;gap:8px;align-items:flex-start;opacity:.9}
@@ -340,8 +344,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     <h2>Todo ano é a mesma correria?</h2>
     <p class="sub">Dá para viver um Natal diferente com poucos minutos por noite.</p>
     <div class="ad-grid">
-      <div class="ad-card ad-antes"><span class="lbl">ANTES</span>
-        <ul><li>🛒 Compras e presentes</li><li>📱 Criança no celular</li><li>⏳ Jesus fica para depois</li></ul>
+      <div class="ad-card ad-antes" role="img" aria-label="Criança no celular no sofá enquanto a mãe chega correndo com sacolas de compras, árvore de Natal ao fundo"><span class="lbl">ANTES</span>
         <p class="big">E ninguém lembrou do aniversariante.</p>
       </div>
       <div class="ad-card ad-depois" role="img" aria-label="Criança colocando a peça de Maria no presépio de papel"><span class="lbl">DEPOIS</span>
