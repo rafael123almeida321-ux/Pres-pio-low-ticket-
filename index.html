@@ -71,13 +71,21 @@ section{padding:72px 0}
 
 /* HERO mobile: produto acima da dobra */
 .hero-shot{display:none}
+.vsl{position:relative;margin:0;border-radius:16px;overflow:hidden;border:3px solid var(--ouro);background:#14203c;aspect-ratio:3/4;max-height:72vh;width:auto}
+.vsl video{display:block;width:100%;height:100%;object-fit:cover}
+.vsl .som{position:absolute;right:10px;bottom:60px;border:0;border-radius:999px;background:rgba(30,42,74,.88);color:#FFF6E6;font:800 14px/1 var(--body,inherit);padding:10px 14px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.vsl .som[hidden]{display:none}
+.vsl .tag{position:absolute;left:8px;top:6px;background:rgba(30,42,74,.7);color:#EADFCB;font-size:10.5px;padding:3px 8px;border-radius:999px}
+.hero-grid > figure.vslwrap{border:0;display:flex;justify-content:center}
 @media (max-width:759px){
   .hero{padding-top:26px}
   .hero h1{font-size:clamp(30px,8.6vw,40px)}
   .hero .lead{font-size:16.5px;margin-top:10px}
   .hero .tagline{display:none}
-  .hero-shot{display:block;margin:14px 0 0}
-  .hero-shot img{border-radius:14px;border:3px solid var(--ouro)}
+  .hero-shot{display:flex;justify-content:center;margin:14px 0 0}
+  .hero-shot .vsl{max-height:56vh}
+  .hero-text{display:flex;flex-direction:column}
+  .hero-text .lead{order:5;margin-top:14px}
   .hero-actions{margin-top:16px;gap:10px}
   .hero-grid > figure{display:none}
   .hero .more{display:none}
@@ -276,7 +284,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     <div class="hero-text">
       <p class="eyebrow">Presépio Noite a Noite</p>
       <h1>O Natal com Jesus no centro, noite a noite, com as crianças</h1>
-      <figure class="hero-shot"><img src="img/presepio-completo.webp" width="1600" height="1067" alt="Presépio montado com as 12 peças do kit sobre o cenário de Belém à noite."></figure>
+      <figure class="hero-shot"><div class="vsl" id="vsl"><video id="vslVideo" src="img/vsl.mp4" poster="img/vsl-poster.webp" width="540" height="720" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo: a família recorta as peças e monta o presépio noite a noite"></video><button type="button" class="som" id="vslSom">🔊 Toque para ouvir</button><span class="tag">Montagem ilustrativa</span></div></figure>
       <p class="lead">Devocional em família de 24 dias com um presépio de papel que vocês montam peça por peça, contando às crianças a história do nascimento de Jesus.</p>
       <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
       <div class="hero-actions">
@@ -285,10 +293,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
         <a class="more" href="#materiais">Veja tudo o que você vai receber ↓</a>
       </div>
     </div>
-    <figure>
-      <img src="img/presepio-completo.webp" width="1600" height="1067" alt="Presépio montado com as 12 peças do kit sobre o cenário de Belém à noite: estábulo, estrela, Maria, José, o Menino Jesus na manjedoura, anjos, pastores, sábios, jumentinho, boi e ovelha.">
-      <figcaption>Montagem digital feita com as 12 peças do kit</figcaption>
-    </figure>
+    <figure class="vslwrap" id="vslDesk"></figure>
   </div>
 </header>
 
@@ -566,6 +571,22 @@ track("landing_view", { source: new URLSearchParams(location.search).get("from")
     };
     tick(); const timer = setInterval(tick, 1000);
   }
+})();
+
+/* ===== VSL ===== */
+(function () {
+  const box = document.getElementById("vsl"), v = document.getElementById("vslVideo"), btn = document.getElementById("vslSom");
+  if (!box || !v) return;
+  const desk = document.getElementById("vslDesk"), mob = box.parentElement;
+  const mq = matchMedia("(min-width:760px)");
+  const place = () => { (mq.matches ? desk : mob).appendChild(box); v.play && v.play().catch(()=>{}); };
+  place(); mq.addEventListener ? mq.addEventListener("change", place) : mq.addListener(place);
+  btn.addEventListener("click", () => {
+    v.muted = false; v.currentTime = 0; v.loop = false; v.play().catch(()=>{});
+    btn.hidden = true; if (typeof track === "function") track("vsl_som");
+  });
+  v.addEventListener("ended", () => { v.muted = true; v.loop = true; v.play().catch(()=>{}); btn.hidden = false; btn.textContent = "🔊 Ver de novo com som"; });
+  v.addEventListener("click", () => { if (!v.muted) { v.paused ? v.play() : v.pause(); } });
 })();
 
 /* ===== Barra fixa de compra (celular) ===== */
