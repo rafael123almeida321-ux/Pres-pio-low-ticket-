@@ -160,6 +160,13 @@ section{padding:72px 0}
 .offer .price small{font-size:26px;vertical-align:top;position:relative;top:10px;margin-right:4px}
 .offer .launch{display:inline-block;background:#F8EDEF;color:var(--vinho);font-size:14.5px;padding:8px 14px;border-radius:999px;margin-top:4px}
 .offer .launch[hidden],.js-launch[hidden]{display:none}
+.topbar{position:sticky;top:0;z-index:50;background:var(--vinho);color:#FFF6E6;text-align:center;font-size:14.5px;line-height:1.35;padding:9px 14px}
+.topbar b{color:var(--ouro-claro)}
+.topbar[hidden],.cd[hidden]{display:none}
+.cd{display:flex;justify-content:center;gap:8px;margin:12px 0 6px}
+.cd span{background:var(--noite);color:var(--creme);border-radius:10px;min-width:58px;padding:8px 6px 6px;text-align:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.cd span b{display:block;font-family:var(--display);font-size:24px;color:var(--ouro-claro);letter-spacing:0;font-variant-numeric:tabular-nums}
+.cd-label{text-align:center;font-weight:800;color:var(--vinho);margin:10px 0 0;font-size:15px}
 .offer .once{color:var(--tinta-2);font-size:15px;margin:6px 0 20px}
 .offer .pay{font-size:13.5px;color:var(--tinta-2);margin-top:14px}
 
@@ -217,6 +224,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 </head>
 <body>
 
+<div class="topbar js-launch" hidden role="note">Preço de lançamento <b>R$ 14,99</b> termina em <b class="js-cd-txt">--</b> · depois, <span class="js-cheio"></span></div>
 <div class="review" id="review" hidden>Versão de revisão: o link do checkout ainda não foi configurado.</div>
 
 <!-- HERO -->
@@ -410,6 +418,8 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
         <li class="b"><b>Bônus:</b> Certificado da Noite de Natal</li>
       </ul>
       <p class="launch js-launch" hidden>Preço de lançamento até <b class="js-ate"></b>. Depois, o kit passa a custar <b class="js-cheio"></b>.</p>
+      <p class="cd-label js-launch" hidden>O preço de lançamento termina em:</p>
+      <div class="cd js-launch" hidden aria-live="off"><span><b class="js-d">0</b>dias</span><span><b class="js-h">00</b>horas</span><span><b class="js-m">00</b>min</span><span><b class="js-s">00</b>seg</span></div>
       <p class="price"><small>R$</small>14,99</p>
       <p class="once">Pagamento único, sem mensalidade. Dá cerca de R$ 0,62 por dia de devocional.</p>
       <a class="cta wide js-checkout" data-pos="oferta" href="#oferta">Quero montar o meu presépio <span class="arrow" aria-hidden="true">→</span></a>
@@ -516,6 +526,20 @@ track("landing_view", { source: new URLSearchParams(location.search).get("from")
     document.querySelectorAll(".js-ate").forEach(e => e.textContent = L.ateTexto);
     document.querySelectorAll(".js-cheio").forEach(e => e.textContent = L.precoCheio);
     document.querySelectorAll(".js-launch").forEach(e => e.hidden = false);
+    // Contador real: o mesmo prazo para todo mundo (fim do preço de lançamento)
+    const fim = new Date(L.ate + "T23:59:59-03:00").getTime();
+    const pad = n => String(n).padStart(2, "0");
+    const tick = () => {
+      const ms = fim - Date.now();
+      if (ms <= 0) { document.querySelectorAll(".js-launch").forEach(e => e.hidden = true); clearInterval(timer); return; }
+      const d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60, sec = Math.floor(ms / 1e3) % 60;
+      document.querySelectorAll(".js-d").forEach(e => e.textContent = d);
+      document.querySelectorAll(".js-h").forEach(e => e.textContent = pad(h));
+      document.querySelectorAll(".js-m").forEach(e => e.textContent = pad(m));
+      document.querySelectorAll(".js-s").forEach(e => e.textContent = pad(sec));
+      document.querySelectorAll(".js-cd-txt").forEach(e => e.textContent = (d ? d + (d === 1 ? " dia " : " dias ") : "") + pad(h) + "h " + pad(m) + "min");
+    };
+    tick(); const timer = setInterval(tick, 1000);
   }
 })();
 
