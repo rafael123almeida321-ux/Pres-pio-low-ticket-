@@ -73,7 +73,7 @@ section{padding:72px 0}
 .hero-shot{display:none}
 .vsl{position:relative;margin:0;border-radius:16px;overflow:hidden;border:3px solid var(--ouro);background:#14203c;aspect-ratio:3/4;max-height:72vh;width:auto}
 .vsl video{display:block;width:100%;height:100%;object-fit:cover}
-.vsl .som{position:absolute;right:10px;bottom:60px;border:0;border-radius:999px;background:rgba(30,42,74,.88);color:#FFF6E6;font:800 14px/1 var(--body,inherit);padding:10px 14px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.vsl .som{position:absolute;left:10px;bottom:58px;border:0;border-radius:999px;background:rgba(30,42,74,.88);color:#FFF6E6;font:800 14px/1 var(--body,inherit);padding:10px 14px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 .vsl .som[hidden]{display:none}
 .vsl .tag{position:absolute;left:8px;top:6px;background:rgba(30,42,74,.7);color:#EADFCB;font-size:10.5px;padding:3px 8px;border-radius:999px}
 .hero-grid > figure.vslwrap{border:0;display:flex;justify-content:center}
@@ -284,7 +284,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     <div class="hero-text">
       <p class="eyebrow">Presépio Noite a Noite</p>
       <h1>O Natal com Jesus no centro, noite a noite, com as crianças</h1>
-      <figure class="hero-shot"><div class="vsl" id="vsl"><video id="vslVideo" src="img/vsl.mp4" poster="img/vsl-poster.webp" width="540" height="720" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo: a família recorta as peças e monta o presépio noite a noite"></video><button type="button" class="som" id="vslSom">🔊 Toque para ouvir</button><span class="tag">Montagem ilustrativa</span></div></figure>
+      <figure class="hero-shot"><div class="vsl" id="vsl"><video id="vslVideo" src="img/vsl.mp4" poster="img/vsl-poster.webp" width="540" height="720" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo: a família recorta as peças e monta o presépio noite a noite"></video><button type="button" class="som" id="vslSom">🔊 Ouvir</button><span class="tag">Montagem ilustrativa</span></div></figure>
       <p class="lead">Devocional em família de 24 dias com um presépio de papel que vocês montam peça por peça, contando às crianças a história do nascimento de Jesus.</p>
       <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
       <div class="hero-actions">
@@ -585,7 +585,7 @@ track("landing_view", { source: new URLSearchParams(location.search).get("from")
     v.muted = false; v.currentTime = 0; v.loop = false; v.play().catch(()=>{});
     btn.hidden = true; if (typeof track === "function") track("vsl_som");
   });
-  v.addEventListener("ended", () => { v.muted = true; v.loop = true; v.play().catch(()=>{}); btn.hidden = false; btn.textContent = "🔊 Ver de novo com som"; });
+  v.addEventListener("ended", () => { v.muted = true; v.loop = true; v.play().catch(()=>{}); btn.hidden = false; btn.textContent = "🔊 Ouvir de novo"; });
   v.addEventListener("click", () => { if (!v.muted) { v.paused ? v.play() : v.pause(); } });
 })();
 
