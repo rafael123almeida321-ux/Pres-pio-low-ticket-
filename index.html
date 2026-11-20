@@ -92,15 +92,28 @@ section{padding:72px 0}
   .hero-grid > figure{display:none}
   .hero .more{display:none}
 }
-/* POR DENTRO (prévia logo após o topo) */
-.dentro{background:var(--creme);padding:34px 0 30px}
-.dentro h2{font-size:clamp(22px,5.4vw,30px)}
-.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 2px 8px;margin:0 -2px;-webkit-overflow-scrolling:touch}
-.strip figure{margin:0;flex:0 0 42%;scroll-snap-align:start}
-.strip button{display:block;width:100%;border:0;padding:0;background:none;cursor:zoom-in;border-radius:10px;overflow:hidden;box-shadow:0 6px 16px rgba(43,33,24,.16)}
-.strip figcaption{font-size:13px;color:var(--tinta-2);margin-top:6px;text-align:center}
-.strip-hint{font-size:13px;color:var(--tinta-2);margin-top:4px}
-@media (min-width:760px){.strip figure{flex:1 1 0}.strip-hint{display:none}}
+/* POR DENTRO: carrossel infinito */
+.dentro{position:relative;overflow:hidden;padding:44px 0 40px;background:radial-gradient(120% 70% at 50% 0%,#2f3f78 0%,#1e2a4a 55%,#151d36 100%);color:#FFF6E6}
+.dentro::before{content:"";position:absolute;inset:0;background-image:radial-gradient(2px 2px at 12% 18%,#f5d77a 50%,transparent 51%),radial-gradient(1.5px 1.5px at 78% 12%,#fff1c4 50%,transparent 51%),radial-gradient(2px 2px at 40% 8%,#f5d77a 50%,transparent 51%),radial-gradient(1.5px 1.5px at 90% 30%,#fff1c4 50%,transparent 51%),radial-gradient(1.5px 1.5px at 25% 35%,#fff1c4 50%,transparent 51%),radial-gradient(2px 2px at 62% 26%,#f5d77a 50%,transparent 51%);opacity:.7;pointer-events:none}
+.dentro .wrap{position:relative}
+.dentro .eyebrow{color:var(--ouro-claro)}
+.dentro h2{color:#FFF6E6;font-size:clamp(24px,6vw,34px)}
+.dentro-sub{color:#E9DCC4;margin-top:8px;font-size:15.5px}
+.marquee{position:relative;margin-top:22px;padding:14px 0 18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marq 48s linear infinite}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+.marquee-group{display:flex;gap:16px;padding-right:16px}
+.marquee figure{margin:0;width:150px;flex:0 0 auto;transition:transform .25s ease}
+.marquee figure:nth-child(odd){transform:rotate(-2deg)}
+.marquee figure:nth-child(even){transform:rotate(2deg) translateY(8px)}
+.marquee figure:hover{transform:rotate(0) scale(1.06)}
+.marquee button{display:block;width:100%;border:3px solid var(--ouro);padding:0;background:#fff;cursor:zoom-in;border-radius:12px;overflow:hidden;box-shadow:0 12px 26px rgba(0,0,0,.35),0 0 0 6px rgba(232,190,72,.12)}
+.marquee img{display:block;width:100%;height:auto}
+.marquee figcaption{margin-top:10px;text-align:center;font-size:12.5px;font-weight:800;color:#1e2a4a;background:var(--ouro-claro);border-radius:999px;padding:4px 10px;width:max-content;max-width:100%;margin-left:auto;margin-right:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dentro-cta{display:flex;justify-content:center;margin-top:8px}
+@media (min-width:760px){.marquee figure{width:200px}.marquee-track{animation-duration:60s}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee{overflow-x:auto}.marquee-track{animation:none}.marquee-group[aria-hidden]{display:none}}
 /* CTA no meio */
 .mid-cta{margin-top:28px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .mid-cta small{color:var(--tinta-2);font-size:14px}
@@ -363,13 +376,16 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
   <div class="wrap">
     <p class="eyebrow">Páginas reais do kit</p>
     <h2>Veja por dentro antes de comprar</h2>
-    <div class="strip">
-      <figure><button type="button" class="js-zoom" data-src="img/pg-dev-dia3.webp" data-alt="Dia 3 do devocional"><img src="img/pg-dev-dia3.webp" width="900" height="1273" loading="lazy" alt="Página do dia 3 do devocional: Dizer sim a Deus"></button><figcaption>Um dia de devocional</figcaption></figure>
-      <figure><button type="button" class="js-zoom" data-src="img/pg-pecas-cor.webp" data-alt="Peças coloridas"><img src="img/pg-pecas-cor.webp" width="900" height="1273" loading="lazy" alt="Folha de peças coloridas para recortar"></button><figcaption>Peças para recortar</figcaption></figure>
-      <figure><button type="button" class="js-zoom" data-src="img/pg-ativ-caca.webp" data-alt="Caça-palavras"><img src="img/pg-ativ-caca.webp" width="900" height="1273" loading="lazy" alt="Atividade de caça-palavras da história"></button><figcaption>Atividades</figcaption></figure>
-      <figure><button type="button" class="js-zoom" data-src="img/pg-dev-calendario.webp" data-alt="Calendário de 24 dias"><img src="img/pg-dev-calendario.webp" width="900" height="1273" loading="lazy" alt="Calendário dos 24 dias até o Natal"></button><figcaption>Calendário de 24 dias</figcaption></figure>
+    <p class="dentro-sub">68 páginas ilustradas em A4, prontas para imprimir. Toque numa página para ampliar.</p>
+  </div>
+  <div class="marquee" aria-label="Páginas reais do kit">
+    <div class="marquee-track">
+      <div class="marquee-group"><figure><button type="button" class="js-zoom" data-src="img/pg-capa.webp" data-alt="Capa do kit"><img src="img/pg-capa.webp" width="900" height="1273" loading="lazy" alt="Capa do kit"></button><figcaption>Capa do kit</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-dev-dia3.webp" data-alt="Um dia de devocional"><img src="img/pg-dev-dia3.webp" width="900" height="1273" loading="lazy" alt="Um dia de devocional"></button><figcaption>Um dia de devocional</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-pecas-cor.webp" data-alt="Peças coloridas"><img src="img/pg-pecas-cor.webp" width="900" height="1273" loading="lazy" alt="Peças coloridas"></button><figcaption>Peças coloridas</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-dev-calendario.webp" data-alt="Calendário de 24 dias"><img src="img/pg-dev-calendario.webp" width="900" height="1273" loading="lazy" alt="Calendário de 24 dias"></button><figcaption>Calendário de 24 dias</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-cartoes.webp" data-alt="Cartões das noites"><img src="img/pg-cartoes.webp" width="900" height="1273" loading="lazy" alt="Cartões das noites"></button><figcaption>Cartões das noites</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-roteiro.webp" data-alt="Roteiro das noites"><img src="img/pg-roteiro.webp" width="900" height="1273" loading="lazy" alt="Roteiro das noites"></button><figcaption>Roteiro das noites</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-ativ-caca.webp" data-alt="Caça-palavras"><img src="img/pg-ativ-caca.webp" width="900" height="1273" loading="lazy" alt="Caça-palavras"></button><figcaption>Caça-palavras</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-ativ-labirinto.webp" data-alt="Labirinto"><img src="img/pg-ativ-labirinto.webp" width="900" height="1273" loading="lazy" alt="Labirinto"></button><figcaption>Labirinto</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-dev-capa.webp" data-alt="Devocional"><img src="img/pg-dev-capa.webp" width="900" height="1273" loading="lazy" alt="Devocional"></button><figcaption>Devocional</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-bonus-colorir.webp" data-alt="Bônus: colorir"><img src="img/pg-bonus-colorir.webp" width="900" height="1273" loading="lazy" alt="Bônus: colorir"></button><figcaption>Bônus: colorir</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-bonus-ceia.webp" data-alt="Bônus: cartões da ceia"><img src="img/pg-bonus-ceia.webp" width="900" height="1273" loading="lazy" alt="Bônus: cartões da ceia"></button><figcaption>Bônus: cartões da ceia</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-pecas-colorir.webp" data-alt="Peças para colorir"><img src="img/pg-pecas-colorir.webp" width="900" height="1273" loading="lazy" alt="Peças para colorir"></button><figcaption>Peças para colorir</figcaption></figure></div>
+      <div class="marquee-group" aria-hidden="true"><figure><button type="button" class="js-zoom" data-src="img/pg-capa.webp" data-alt="Capa do kit" tabindex="-1"><img src="img/pg-capa.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Capa do kit</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-dev-dia3.webp" data-alt="Um dia de devocional" tabindex="-1"><img src="img/pg-dev-dia3.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Um dia de devocional</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-pecas-cor.webp" data-alt="Peças coloridas" tabindex="-1"><img src="img/pg-pecas-cor.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Peças coloridas</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-dev-calendario.webp" data-alt="Calendário de 24 dias" tabindex="-1"><img src="img/pg-dev-calendario.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Calendário de 24 dias</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-cartoes.webp" data-alt="Cartões das noites" tabindex="-1"><img src="img/pg-cartoes.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Cartões das noites</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-roteiro.webp" data-alt="Roteiro das noites" tabindex="-1"><img src="img/pg-roteiro.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Roteiro das noites</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-ativ-caca.webp" data-alt="Caça-palavras" tabindex="-1"><img src="img/pg-ativ-caca.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Caça-palavras</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-ativ-labirinto.webp" data-alt="Labirinto" tabindex="-1"><img src="img/pg-ativ-labirinto.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Labirinto</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-dev-capa.webp" data-alt="Devocional" tabindex="-1"><img src="img/pg-dev-capa.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Devocional</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-bonus-colorir.webp" data-alt="Bônus: colorir" tabindex="-1"><img src="img/pg-bonus-colorir.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Bônus: colorir</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-bonus-ceia.webp" data-alt="Bônus: cartões da ceia" tabindex="-1"><img src="img/pg-bonus-ceia.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Bônus: cartões da ceia</figcaption></figure><figure><button type="button" class="js-zoom" data-src="img/pg-pecas-colorir.webp" data-alt="Peças para colorir" tabindex="-1"><img src="img/pg-pecas-colorir.webp" width="900" height="1273" loading="lazy" alt=""></button><figcaption>Peças para colorir</figcaption></figure></div>
     </div>
-    <p class="strip-hint">Arraste para o lado · toque para ampliar</p>
+  </div>
+  <div class="wrap dentro-cta">
+    <a class="cta js-checkout" data-pos="por-dentro" href="#oferta">Quero o meu por R$ 9,99 <span class="arrow" aria-hidden="true">→</span></a>
   </div>
 </section>
 
