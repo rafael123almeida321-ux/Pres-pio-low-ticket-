@@ -339,9 +339,9 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
   <div class="wrap hero-grid">
     <div class="hero-text">
       <p class="eyebrow">Presépio Noite a Noite</p>
-      <h1>Seu filho sabe tudo sobre o Papai Noel. <span class="dor2">E sobre o Menino Jesus?</span></h1>
+      <h1 id="h1">Seu filho sabe tudo sobre o Papai Noel. <span class="dor2">E sobre o Menino Jesus?</span></h1>
       <figure class="hero-shot"><div class="vsl" id="vsl"><video id="vslVideo" src="img/vsl.mp4" poster="img/vsl-poster.webp" width="540" height="720" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo: a família recorta as peças e monta o presépio noite a noite"></video><button type="button" class="som" id="vslSom">🔊 Ouvir</button><span class="tag">Montagem ilustrativa</span></div></figure>
-      <p class="lead">Esse Natal, tenha um plano pronto: um presépio de papel que vocês montam uma peça por noite, contando a história do nascimento de Jesus. É só imprimir e começar.</p>
+      <p class="lead" id="lead">Esse Natal, tenha um plano pronto: um presépio de papel que vocês montam uma peça por noite, contando a história do nascimento de Jesus. É só imprimir e começar.</p>
       <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
       <div class="hero-actions">
         <a class="cta js-checkout" data-pos="hero" href="#oferta">Quero um Natal com Jesus no centro <span class="arrow" aria-hidden="true">→</span></a>
@@ -357,11 +357,11 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 <!-- ANTES E DEPOIS -->
 <section class="ad" id="antes-depois">
   <div class="wrap">
-    <h2>Todo ano é a mesma correria?</h2>
+    <h2 id="adH2">Todo ano é a mesma correria?</h2>
     <p class="sub">Dá para viver um Natal diferente com poucos minutos por noite.</p>
     <div class="ad-grid">
       <div class="ad-card ad-antes" role="img" aria-label="Criança no celular no sofá enquanto a mãe chega correndo com sacolas de compras, árvore de Natal ao fundo"><span class="lbl">ANTES</span>
-        <p class="big">E ninguém lembrou do aniversariante.</p>
+        <p class="big" id="adAntes">E ninguém lembrou do aniversariante.</p>
       </div>
       <div class="ad-card ad-depois" role="img" aria-label="Criança colocando a peça de Maria no presépio de papel"><span class="lbl">DEPOIS</span>
         <p class="big">Uma peça por noite. Juntos.</p>
@@ -370,6 +370,19 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     </div>
   </div>
 </section>
+<script>
+/* Mensagem congruente com o criativo: clique do AD08 (gancho do celular) ou ?v=celular */
+(function(){try{
+  var q=decodeURIComponent(location.search+' '+location.hash).toLowerCase();
+  if(!/ad08|celular|v=tela/.test(q))return;
+  document.documentElement.classList.add('v-celular');
+  var s=function(id,html){var e=document.getElementById(id);if(e)e.innerHTML=html;};
+  s('h1','Seu filho não larga o celular… <span class="dor2">nem no Natal?</span>');
+  s('lead','Esse ano pode ser diferente. Troque a tela por um presépio de papel que vocês montam juntos, uma peça por noite, contando a história do nascimento de Jesus. É só imprimir e começar hoje à noite.');
+  s('adH2','Esse ano, menos tela e mais Natal.');
+  s('adAntes','Ele no celular. E ninguém lembrou do aniversariante.');
+}catch(e){}})();
+</script>
 
 <!-- POR DENTRO -->
 <section class="dentro" id="por-dentro">
