@@ -574,15 +574,15 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
         </ul>
         <a class="cta cta-sec wide js-basico" data-pos="plano-basico" href="#oferta">Escolher o Básico</a>
       </article>
-      <p class="planos-seta" aria-hidden="true">Por só R$ 9,91 a mais, veja o Completo ↓</p>
+      <p class="planos-seta" aria-hidden="true">Por só R$ 10 a mais, veja o Completo ↓</p>
       <article class="plano completo">
         <p class="plano-selo">Recomendado</p>
         <p class="plano-tag">Completo</p>
         <h3>Kit Completo</h3>
         <p class="plano-desc">Tudo do Básico, mais jogos, teatro e uso com a turma.</p>
         <img src="img/mockup-completo.webp" width="1400" height="1000" loading="lazy" alt="Páginas do Kit Completo: teatrinho, jogo da memória, trilha e roteiro para turma">
-        <p class="price"><small>R$</small>19,90</p>
-        <p class="once">pagamento único · menos de R$ 0,83 por dia</p>
+        <p class="price"><small>R$</small>19,99</p>
+        <p class="once">pagamento único · menos de R$ 0,84 por dia</p>
         <ul>
           <li><b>Tudo do plano Básico</b></li>
           <li class="g"><b>Teatrinho do Presépio:</b> 12 fantoches de palito e roteiro com falas para apresentar na noite de Natal</li>
@@ -603,7 +603,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 <dialog id="upgrade" class="upgrade" aria-labelledby="upTitle">
   <button type="button" class="up-x" id="upX" aria-label="Fechar">×</button>
   <p class="plano-tag">Antes de continuar</p>
-  <h3 id="upTitle">Leve o Completo por só R$ 9,91 a mais</h3>
+  <h3 id="upTitle">Leve o Completo por só R$ 10 a mais</h3>
   <p class="up-desc">Com o Básico você leva o presépio e o devocional. Com o Completo, sua família também recebe:</p>
   <ul>
     <li>🎭 Teatrinho do Presépio para a noite de Natal</li>
@@ -612,7 +612,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     <li>🎁 Cartões e Etiquetas de Presente</li>
     <li>⛪ Licença para usar com a turma ou a catequese</li>
   </ul>
-  <a class="cta wide js-completo" data-pos="popup-completo" href="#oferta">Quero o Completo por R$ 19,90</a>
+  <a class="cta wide js-completo" data-pos="popup-completo" href="#oferta">Quero o Completo por R$ 19,99</a>
   <a class="up-cont js-basico-go" data-pos="popup-basico" href="#oferta">Continuar com o Básico, por R$ 9,99</a>
 </dialog>
 
@@ -655,7 +655,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
       <details><summary>Comprei depois de 1º de dezembro. Ainda dá tempo?</summary><p>Você escolhe o ritmo: 24 dias (a partir de 1º de dezembro), 12 noites (a partir de 13/12), 6 noites (duas peças por noite) ou uma noite especial, montando tudo de uma vez. Dá para começar em qualquer dia até o Natal.</p></details>
       <details><summary>Posso usar na escola ou na igreja?</summary><p>Sim, com o plano Completo. Ele inclui a licença para usar com uma turma, grupo de catequese ou escola dominical de até 40 crianças, e um roteiro de 4 encontros para o Advento. O plano Básico é para uso da sua família.</p></details>
       <details><summary>Qual a diferença entre os planos?</summary><p>O presépio de 24 peças, o devocional e os 4 bônus estão nos dois. O Completo acrescenta o Teatrinho do Presépio, o Jogo da Memória, a Trilha até Belém, os Cartões e Etiquetas de Presente e a licença para turma e catequese.</p></details>
-      <details><summary>Tem mensalidade?</summary><p>Não. É um pagamento único: R$ 9,99 no Básico ou R$ 19,90 no Completo.</p></details>
+      <details><summary>Tem mensalidade?</summary><p>Não. É um pagamento único: R$ 9,99 no Básico ou R$ 19,99 no Completo.</p></details>
     </div>
   </div>
 </section>
@@ -689,7 +689,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 /* ===== Configuração: preencha antes de publicar ===== */
 const CONFIG = {
   checkoutUrl: "https://pay.cakto.com.br/6e9uajm_1320211",       // Básico R$ 9,99
-  checkoutCompleto: "",                                          // Completo R$ 19,90 (link da Cakto)
+  checkoutCompleto: "https://pay.cakto.com.br/rx4qxgd_1363010", // Completo R$ 19,99
   // Prazo real: o calendário de 24 dias começa em 1º/12 (Advento começa 29/11). Sem promessa de aumento de preço.
   lancamento: { ate: "2026-11-30", ateTexto: "30/11" },
   pixelId: "1140696101011245", // mesmo Pixel dos outros low tickets
