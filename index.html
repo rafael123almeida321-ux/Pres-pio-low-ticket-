@@ -237,6 +237,42 @@ body.has-buybar footer{padding-bottom:96px}
 .faixa span{display:block}
 .faixa span:nth-child(2){color:var(--ouro-claro)}
 
+
+/* PLANOS */
+.planos-sub{text-align:center;color:var(--tinta-2);max-width:620px;margin:8px auto 18px}
+.planos-aviso{display:block;text-align:center;max-width:620px;margin:0 auto 18px}
+.planos{display:grid;gap:18px;max-width:980px;margin:0 auto;align-items:start}
+.plano{background:#fff;border:2px solid var(--linha);border-radius:22px;padding:26px 20px;box-shadow:0 14px 36px rgba(43,33,24,.10);position:relative;text-align:center}
+.plano.completo{border:3px solid var(--ouro);box-shadow:0 22px 54px rgba(43,33,24,.18);background:linear-gradient(180deg,#FFFDF7,#fff)}
+.plano-selo{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--vinho);color:#FFF6E6;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:999px;white-space:nowrap}
+.plano-tag{font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--vinho);margin:0}
+.plano h3{font-size:26px;margin:4px 0 6px}
+.plano-desc{color:var(--tinta-2);font-size:15.5px;margin:0 0 6px}
+.plano img{border-radius:12px;margin:10px 0 4px}
+.plano .price{font-family:var(--display);font-weight:800;font-size:56px;color:var(--verde);line-height:1;margin:10px 0 0}
+.plano.basico .price{font-size:46px;color:var(--tinta)}
+.plano .price small{font-size:22px;vertical-align:top;position:relative;top:8px;margin-right:4px}
+.plano .once{font-size:14px;color:var(--tinta-2);margin:4px 0 0}
+.plano ul{list-style:none;padding:0;margin:18px 0 20px;text-align:left;display:grid;gap:9px}
+.plano li{padding-left:30px;position:relative;font-size:15.5px}
+.plano li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.plano li.b::before{background-color:var(--vinho)}
+.plano li.g::before{background-color:var(--ouro)}
+.plano li.x{color:#A99C8C;text-decoration:line-through}
+.plano li.x::before{background:#D9CFC1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 6l8 8M14 6l-8 8' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.cta-sec{background:#fff;border:2px solid var(--verde);color:var(--verde);box-shadow:none;text-shadow:none;font-size:17px}
+.cta-sec:hover{box-shadow:none;background:#F3F7F4}
+.planos-seta{text-align:center;font-weight:800;color:var(--vinho);margin:2px 0 6px}
+@media (min-width:860px){.planos{grid-template-columns:1fr 1fr;gap:26px}.planos-seta{display:none}.plano.completo{margin-top:-8px}}
+.upgrade{border:3px solid var(--ouro);border-radius:22px;padding:28px 22px 20px;max-width:440px;width:calc(100% - 28px);text-align:center;background:#FFFDF7;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.upgrade::backdrop{background:rgba(20,28,50,.65)}
+.upgrade h3{font-size:24px;margin:6px 0 8px}
+.upgrade .up-desc{color:var(--tinta-2);font-size:15.5px;margin:0 0 12px}
+.upgrade ul{list-style:none;padding:0;margin:0 0 18px;text-align:left;display:grid;gap:8px;background:var(--creme);border-radius:14px;padding:14px 16px}
+.upgrade li{font-size:15.5px}
+.up-x{position:absolute;top:8px;right:12px;border:0;background:none;font-size:28px;line-height:1;color:var(--tinta-2);cursor:pointer}
+.up-cont{display:block;margin-top:14px;color:var(--tinta-2);font-size:15px;text-decoration:underline;text-underline-offset:3px}
+
 /* FICHA */
 details.ficha dl{margin:0 18px 14px;border-top:0}
 details.ficha .row:last-child{border-bottom:0}
@@ -330,7 +366,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 <div class="review" id="review" hidden>Versão de revisão: o link do checkout ainda não foi configurado.</div>
 
 <!-- HERO -->
-<div class="valuebar">68 páginas<i>•</i>12 peças<i>•</i>24 dias<i>•</i>4 bônus</div>
+<div class="valuebar">82 páginas<i>•</i>24 peças<i>•</i>24 dias<i>•</i>4 bônus</div>
 <header class="hero" id="topo">
   <div class="sky" aria-hidden="true">
     <i style="left:6%;top:12%"></i><i style="left:18%;top:30%;animation-delay:1s"></i><i style="left:31%;top:8%;animation-delay:2s"></i>
@@ -345,8 +381,8 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
       <p class="lead" id="lead">Esse Natal, tenha um plano pronto: um presépio de papel que vocês montam uma peça por noite, contando a história do nascimento de Jesus. É só imprimir e começar.</p>
       <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
       <div class="hero-actions">
-        <a class="cta js-checkout" data-pos="hero" href="#oferta">Quero um Natal com Jesus no centro <span class="arrow" aria-hidden="true">→</span></a>
-        <p class="price-line"><b>R$ 9,99</b> · pagamento único · PDF para imprimir em casa<span class="js-launch" hidden><br>Garanta até <span class="js-ate"></span> para começar junto, em 1º de dezembro.</span></p>
+        <a class="cta js-go" data-pos="hero" href="#oferta">Quero um Natal com Jesus no centro <span class="arrow" aria-hidden="true">→</span></a>
+        <p class="price-line">A partir de <b>R$ 9,99</b> · pagamento único · PDF para imprimir em casa<span class="js-launch" hidden><br>Garanta até <span class="js-ate"></span> para começar junto, em 1º de dezembro.</span></p>
         <div class="trust-chips"><span>📄 PDF para imprimir</span><span>💳 Pagamento único</span><span>🛡️ Garantia de 7 dias</span></div>
       </div>
     </div>
@@ -390,7 +426,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
   <div class="wrap">
     <p class="eyebrow">Páginas reais do kit</p>
     <h2>Veja por dentro antes de comprar</h2>
-    <p class="dentro-sub">68 páginas ilustradas em A4, prontas para imprimir. Toque numa página para ampliar.</p>
+    <p class="dentro-sub">82 páginas ilustradas em A4, prontas para imprimir. Toque numa página para ampliar.</p>
   </div>
   <div class="marquee" aria-label="Páginas reais do kit">
     <div class="marquee-track">
@@ -399,7 +435,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     </div>
   </div>
   <div class="wrap dentro-cta">
-    <a class="cta js-checkout" data-pos="por-dentro" href="#oferta">Quero o meu por R$ 9,99 <span class="arrow" aria-hidden="true">→</span></a>
+    <a class="cta js-go" data-pos="por-dentro" href="#oferta">Ver os planos <span class="arrow" aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -450,7 +486,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
         </figure>
       </div>
     </div>
-    <div class="mid-cta"><a class="cta js-checkout" data-pos="como" href="#oferta">Quero montar com meus filhos <span class="arrow" aria-hidden="true">→</span></a><small>R$ 9,99 · pagamento único · PDF para imprimir</small></div>
+    <div class="mid-cta"><a class="cta js-go" data-pos="como" href="#oferta">Quero montar com meus filhos <span class="arrow" aria-hidden="true">→</span></a><small>A partir de R$ 9,99 · pagamento único · PDF para imprimir</small></div>
   </div>
 </section>
 
@@ -468,11 +504,11 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
       <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-ativ-labirinto.webp" data-alt="Atividade: labirinto até Belém"><img src="img/pg-ativ-labirinto.webp" width="900" height="1273" loading="lazy" alt="Atividade do labirinto até Belém"></button>
         <div><span class="num">02</span><h3>12 atividades</h3><p>Caça-palavras, labirinto até Belém, ligue os pontos, jogo da memória, sombras, história em ordem e mais. Uma para cada dia de devocional.</p></div></li>
       <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-cartoes.webp" data-alt="Página de cartões-noite"><img src="img/pg-cartoes.webp" width="900" height="1273" loading="lazy" alt="Página com três cartões-noite"></button>
-        <div><span class="num">03</span><h3>12 cartões-noite</h3><p>A história do nascimento de Jesus em 12 partes, com uma pergunta para conversar e o que fazer em cada noite.</p></div></li>
+        <div><span class="num">03</span><h3>24 cartões com a história</h3><p>A história do nascimento de Jesus em 24 partes, uma para cada peça, com uma pergunta para conversar e o que fazer em cada noite.</p></div></li>
       <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-pecas-cor.webp" data-alt="Folha de peças coloridas"><img src="img/pg-pecas-cor.webp" width="900" height="1273" loading="lazy" alt="Folha com Maria, o anjo Gabriel, José, o jumentinho e a manjedoura para recortar"></button>
-        <div><span class="num">04</span><h3>12 peças coloridas</h3><p>Maria, José, anjos, pastores, sábios, estábulo, manjedoura, estrela e o Menino Jesus, com aba para ficar em pé.</p></div></li>
+        <div><span class="num">04</span><h3>24 peças coloridas, uma por noite</h3><p>Maria, José, Isabel, anjos, pastores, sábios, camelos, estábulo, manjedoura, estrela, as casinhas de Belém e o Menino Jesus, com aba para ficar em pé.</p></div></li>
       <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-pecas-colorir.webp" data-alt="Folha de peças para colorir"><img src="img/pg-pecas-colorir.webp" width="900" height="1273" loading="lazy" alt="As mesmas peças em contorno, para colorir"></button>
-        <div><span class="num">05</span><h3>As 12 peças para colorir</h3><p>As mesmas peças em contorno, para a criança pintar antes de montar.</p></div></li>
+        <div><span class="num">05</span><h3>As 24 peças para colorir</h3><p>As mesmas peças em contorno, para a criança pintar antes de montar.</p></div></li>
       <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-cenario.webp" data-alt="Cenário de Belém"><img src="img/pg-cenario.webp" width="1200" height="848" loading="lazy" alt="Cenário de Belém à noite, com céu estrelado e casinhas"></button>
         <div><span class="num">06</span><h3>Cenário de Belém</h3><p>Um fundo noturno para apoiar atrás do presépio, também em versão para colorir.</p></div></li>
       <li class="mat"><button type="button" class="js-zoom" data-src="img/pg-roteiro.webp" data-alt="Roteiro e caminho até a manjedoura"><img src="img/pg-roteiro.webp" width="900" height="1273" loading="lazy" alt="Caminho com 12 círculos até o estábulo e o roteiro das 12 noites"></button>
@@ -481,7 +517,7 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
         <div><span class="num">08</span><h3>Guia de uso</h3><p>Como imprimir, que papel usar e os ritmos para começar: 24 dias, 12 noites, 6 noites ou uma noite especial.</p></div></li>
     </ul>
     <p class="disclaimer">Imagens de páginas reais do kit. Produto digital em PDF A4: impressão, papel e materiais não estão inclusos.</p>
-    <div class="mid-cta"><a class="cta js-checkout" data-pos="materiais" href="#oferta">Quero tudo isso por R$ 9,99 <span class="arrow" aria-hidden="true">→</span></a><small>+ 4 bônus · pagamento único</small></div>
+    <div class="mid-cta"><a class="cta js-go" data-pos="materiais" href="#oferta">Ver os planos <span class="arrow" aria-hidden="true">→</span></a><small>+ 4 bônus · pagamento único</small></div>
   </div>
 </section>
 
@@ -509,38 +545,76 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 
 
 
-<!-- OFERTA -->
+<!-- OFERTA: 2 PLANOS -->
 <section class="oferta" id="oferta">
   <div class="wrap">
-    <div class="offer">
-      <p class="eyebrow" style="justify-content:center">Presépio Noite a Noite</p>
-      <h2>Devocional + presépio + 4 bônus</h2>
-      <img src="img/mockup-kit.webp" width="1400" height="1000" loading="lazy" alt="Tudo o que vem no kit Presépio Noite a Noite">
-      <ul>
-        <li>Devocional em família de 24 dias até o Natal</li>
-        <li>24 orações e 12 atividades</li>
-        <li>12 cartões-noite com a história do nascimento de Jesus</li>
-        <li>12 peças coloridas com aba para ficar em pé</li>
-        <li>As 12 peças para colorir</li>
-        <li>Cenário de Belém, colorido e para colorir</li>
-        <li>Roteiro e caminho até a manjedoura</li>
-        <li>Guia de uso e calendário de 24 dias</li>
-        <li class="b"><b>Bônus:</b> A História do Natal para Colorir</li>
-        <li class="b"><b>Bônus:</b> Cartões da Ceia</li>
-        <li class="b"><b>Bônus:</b> Versão para os Pequenininhos</li>
-        <li class="b"><b>Bônus:</b> Certificado da Noite de Natal</li>
-      </ul>
-      <p class="launch js-launch" hidden>O calendário de 24 dias começa em <b>1º de dezembro</b>. Garanta até <b class="js-ate"></b> para imprimir com calma e começar junto.</p>
-      <p class="launch js-late" hidden>Comprou depois do dia 1º? Use o ritmo de 12 noites (a partir de 13/12) ou de 6 noites e termine junto, na noite de Natal.</p>
-      <p class="cd-label js-launch" hidden>Para começar em 1º de dezembro, faltam:</p>
-      <div class="cd js-launch" hidden aria-live="off"><span><b class="js-d">0</b>dias</span><span><b class="js-h">00</b>horas</span><span><b class="js-m">00</b>min</span><span><b class="js-s">00</b>seg</span></div>
-      <p class="price"><small>R$</small>9,99</p>
-      <p class="once">Pagamento único, sem mensalidade. Dá cerca de R$ 0,62 por dia de devocional.</p>
-      <a class="cta wide js-checkout" data-pos="oferta" href="#oferta">Quero o Natal com Jesus no centro lá em casa <span class="arrow" aria-hidden="true">→</span></a>
-      <p class="pay">Pagamento processado pela Cakto. Os arquivos chegam no seu e-mail depois da confirmação do pagamento.</p>
+    <p class="eyebrow" style="justify-content:center">Escolha o seu plano</p>
+    <h2 style="text-align:center">O presépio está nos dois planos</h2>
+    <p class="planos-sub">Escolha entre levar o kit da família ou receber também os jogos, o teatrinho e a licença para usar com a turma.</p>
+    <p class="launch js-launch planos-aviso" hidden>O calendário de 24 dias começa em <b>1º de dezembro</b>. Garanta até <b class="js-ate"></b> para imprimir com calma e começar junto.</p>
+    <p class="launch js-late planos-aviso" hidden>Comprou depois do dia 1º? Use o ritmo de 12 noites (a partir de 13/12) ou de 6 noites e termine junto, na noite de Natal.</p>
+    <div class="planos">
+      <article class="plano basico">
+        <p class="plano-tag">Básico</p>
+        <h3>Kit da Família</h3>
+        <p class="plano-desc">Devocional, presépio de 24 peças e 4 bônus.</p>
+        <p class="price"><small>R$</small>9,99</p>
+        <p class="once">pagamento único</p>
+        <ul>
+          <li>Devocional em família de 24 dias</li>
+          <li>24 orações e 12 atividades</li>
+          <li><b>24 peças</b>, uma por noite, coloridas e para colorir</li>
+          <li>24 cartões com a história de cada noite</li>
+          <li>Cenário de Belém, roteiro e calendário de 24 dias</li>
+          <li class="b"><b>4 bônus:</b> História para Colorir, Cartões da Ceia, Versão para os Pequenininhos e Certificado</li>
+          <li class="x">Teatrinho do Presépio</li>
+          <li class="x">Jogo da Memória e Trilha até Belém</li>
+          <li class="x">Cartões e Etiquetas de Presente</li>
+          <li class="x">Licença para turma e catequese</li>
+        </ul>
+        <a class="cta cta-sec wide js-basico" data-pos="plano-basico" href="#oferta">Escolher o Básico</a>
+      </article>
+      <p class="planos-seta" aria-hidden="true">Por só R$ 9,91 a mais, veja o Completo ↓</p>
+      <article class="plano completo">
+        <p class="plano-selo">Recomendado</p>
+        <p class="plano-tag">Completo</p>
+        <h3>Kit Completo</h3>
+        <p class="plano-desc">Tudo do Básico, mais jogos, teatro e uso com a turma.</p>
+        <img src="img/mockup-completo.webp" width="1400" height="1000" loading="lazy" alt="Páginas do Kit Completo: teatrinho, jogo da memória, trilha e roteiro para turma">
+        <p class="price"><small>R$</small>19,90</p>
+        <p class="once">pagamento único · menos de R$ 0,83 por dia</p>
+        <ul>
+          <li><b>Tudo do plano Básico</b></li>
+          <li class="g"><b>Teatrinho do Presépio:</b> 12 fantoches de palito e roteiro com falas para apresentar na noite de Natal</li>
+          <li class="g"><b>Jogo da Memória:</b> 24 pares com as peças do presépio</li>
+          <li class="g"><b>Trilha até Belém:</b> jogo de tabuleiro de Nazaré até a manjedoura, com pinos e dado</li>
+          <li class="g"><b>Cartões e Etiquetas de Presente</b> do presépio</li>
+          <li class="g"><b>Kit Turma e Catequese:</b> licença para usar com uma turma de até 40 crianças e roteiro de 4 encontros no Advento</li>
+        </ul>
+        <a class="cta wide js-completo" data-pos="plano-completo" href="#oferta">Quero o Completo <span class="arrow" aria-hidden="true">→</span></a>
+      </article>
     </div>
+    <p class="cd-label js-launch" hidden>Para começar em 1º de dezembro, faltam:</p>
+    <div class="cd js-launch" hidden aria-live="off"><span><b class="js-d">0</b>dias</span><span><b class="js-h">00</b>horas</span><span><b class="js-m">00</b>min</span><span><b class="js-s">00</b>seg</span></div>
+    <p class="pay" style="text-align:center">Pagamento único pela Cakto, no Pix ou no cartão. Os arquivos chegam no seu e-mail logo depois da confirmação do pagamento. Garantia de 7 dias nos dois planos.</p>
   </div>
 </section>
+
+<dialog id="upgrade" class="upgrade" aria-labelledby="upTitle">
+  <button type="button" class="up-x" id="upX" aria-label="Fechar">×</button>
+  <p class="plano-tag">Antes de continuar</p>
+  <h3 id="upTitle">Leve o Completo por só R$ 9,91 a mais</h3>
+  <p class="up-desc">Com o Básico você leva o presépio e o devocional. Com o Completo, sua família também recebe:</p>
+  <ul>
+    <li>🎭 Teatrinho do Presépio para a noite de Natal</li>
+    <li>🧩 Jogo da Memória com 24 pares</li>
+    <li>🎲 Trilha até Belém, jogo de tabuleiro</li>
+    <li>🎁 Cartões e Etiquetas de Presente</li>
+    <li>⛪ Licença para usar com a turma ou a catequese</li>
+  </ul>
+  <a class="cta wide js-completo" data-pos="popup-completo" href="#oferta">Quero o Completo por R$ 19,90</a>
+  <a class="up-cont js-basico-go" data-pos="popup-basico" href="#oferta">Continuar com o Básico, por R$ 9,99</a>
+</dialog>
 
 <!-- GARANTIA -->
 <section class="garantia" style="padding-top:0">
@@ -563,9 +637,9 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     <div class="faq-list">
       <details class="ficha"><summary>Ficha técnica: formato, páginas, idade e o que você vai precisar</summary><dl>
       <div class="row"><dt>Formato</dt><dd>PDF em A4, para imprimir em casa, na gráfica ou na papelaria.</dd></div>
-      <div class="row"><dt>Páginas</dt><dd>68 páginas: presépio com 17, devocional com 38 e bônus com 13.</dd></div>
+      <div class="row"><dt>Páginas</dt><dd>Plano Básico: 82 páginas (presépio com 17, peças novas com 14, devocional com 38 e bônus com 13). Plano Completo: mais 19 páginas de jogos, teatrinho, cartões de presente e kit para turma.</dd></div>
       <div class="row"><dt>Devocional</dt><dd>24 dias, com 24 orações e 12 atividades.</dd></div>
-      <div class="row"><dt>Peças</dt><dd>12 peças em duas versões: colorida e para colorir.</dd></div>
+      <div class="row"><dt>Peças</dt><dd>24 peças, uma por noite, em duas versões: colorida e para colorir.</dd></div>
       <div class="row"><dt>Idade</dt><dd>De 3 a 9 anos, com um adulto junto. O Bônus 3 atende crianças de 2 a 4 anos.</dd></div>
       <div class="row"><dt>Você vai precisar</dt><dd>Impressora, papel (180 g recomendado para as peças), tesoura sem ponta e, se quiser, cola e lápis de cor.</dd></div>
       <div class="row"><dt>Histórias</dt><dd>Adaptadas para crianças a partir de Lucas 1-2 e Mateus 1-2, em linguagem cristã para qualquer igreja. O que vem da tradição é avisado no cartão.</dd></div>
@@ -579,8 +653,9 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
       <details><summary>Para qual idade é?</summary><p>De 3 a 9 anos, com um adulto lendo e recortando junto. Para crianças de 2 a 4 anos, use o bônus Versão para os Pequenininhos.</p></details>
       <details><summary>Serve para católicos e evangélicos?</summary><p>Sim. As histórias seguem os textos de Lucas e Mateus em linguagem cristã para qualquer igreja. Quando um detalhe vem da tradição, como o boi e o jumentinho, o cartão avisa.</p></details>
       <details><summary>Comprei depois de 1º de dezembro. Ainda dá tempo?</summary><p>Você escolhe o ritmo: 24 dias (a partir de 1º de dezembro), 12 noites (a partir de 13/12), 6 noites (duas peças por noite) ou uma noite especial, montando tudo de uma vez. Dá para começar em qualquer dia até o Natal.</p></details>
-      <details><summary>Posso usar na escola ou na igreja?</summary><p>Esta versão é para uso da sua família. O uso com turmas ou grupos precisa de uma licença própria.</p></details>
-      <details><summary>Tem mensalidade?</summary><p>Não. É um pagamento único de R$ 9,99.</p></details>
+      <details><summary>Posso usar na escola ou na igreja?</summary><p>Sim, com o plano Completo. Ele inclui a licença para usar com uma turma, grupo de catequese ou escola dominical de até 40 crianças, e um roteiro de 4 encontros para o Advento. O plano Básico é para uso da sua família.</p></details>
+      <details><summary>Qual a diferença entre os planos?</summary><p>O presépio de 24 peças, o devocional e os 4 bônus estão nos dois. O Completo acrescenta o Teatrinho do Presépio, o Jogo da Memória, a Trilha até Belém, os Cartões e Etiquetas de Presente e a licença para turma e catequese.</p></details>
+      <details><summary>Tem mensalidade?</summary><p>Não. É um pagamento único: R$ 9,99 no Básico ou R$ 19,90 no Completo.</p></details>
     </div>
   </div>
 </section>
@@ -592,12 +667,12 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
     <figure class="final-shot"><img src="img/familia-final.webp?v=2" width="1000" height="844" loading="lazy" alt="Família reunida à mesa na noite de Natal, a criança colocando o Menino Jesus na manjedoura do presépio de papel"></figure>
     <h2>Vamos preparar um Natal com Jesus no centro?</h2>
     <p class="tagline">Uma peça por noite. Um pedaço da história de cada vez.</p>
-    <a class="cta js-checkout" data-pos="final" href="#oferta">Quero o Natal com Jesus no centro lá em casa <span class="arrow" aria-hidden="true">→</span></a>
+    <a class="cta js-go" data-pos="final" href="#oferta">Quero o Natal com Jesus no centro lá em casa <span class="arrow" aria-hidden="true">→</span></a>
     <p class="trust">Arquivos para imprimir · Garantia de 7 dias · Pagamento pela Cakto</p>
   </div>
 </section>
 
-<div class="buybar" id="buybar" aria-hidden="true"><p class="bp"><b>R$ 9,99</b>pagamento único</p><a class="cta js-checkout" data-pos="barra" href="#oferta" tabindex="-1">Quero o meu <span class="arrow" aria-hidden="true">→</span></a></div>
+<div class="buybar" id="buybar" aria-hidden="true"><p class="bp">a partir de<b>R$ 9,99</b></p><a class="cta js-go" data-pos="barra" href="#oferta" tabindex="-1">Ver os planos <span class="arrow" aria-hidden="true">→</span></a></div>
 
 <footer>
   <div class="wrap">
@@ -613,7 +688,8 @@ dialog .close{display:block;margin:12px auto 0;background:var(--ouro-claro);bord
 <script>
 /* ===== Configuração: preencha antes de publicar ===== */
 const CONFIG = {
-  checkoutUrl: "https://pay.cakto.com.br/6e9uajm_1320211",
+  checkoutUrl: "https://pay.cakto.com.br/6e9uajm_1320211",       // Básico R$ 9,99
+  checkoutCompleto: "",                                          // Completo R$ 19,90 (link da Cakto)
   // Prazo real: o calendário de 24 dias começa em 1º/12 (Advento começa 29/11). Sem promessa de aumento de preço.
   lancamento: { ate: "2026-11-30", ateTexto: "30/11" },
   pixelId: "1140696101011245", // mesmo Pixel dos outros low tickets
@@ -643,10 +719,42 @@ track("landing_view", { source: new URLSearchParams(location.search).get("from")
     allowed.forEach(k => { if (here.get(k)) u.searchParams.set(k, here.get(k)); });
     return u.toString();
   }
-  document.querySelectorAll(".js-checkout").forEach(a => {
-    a.href = checkoutHref();
+  function hrefFor(url) {
+    if (!url) return "#oferta";
+    const u = new URL(url);
+    allowed.forEach(k => { if (here.get(k)) u.searchParams.set(k, here.get(k)); });
+    return u.toString();
+  }
+  // CTAs gerais: levam até os planos
+  document.querySelectorAll(".js-go").forEach(a => {
+    a.href = "#oferta";
     a.addEventListener("click", () => track("cta_click", { position: a.dataset.pos }));
   });
+  // Completo
+  document.querySelectorAll(".js-completo").forEach(a => {
+    a.href = hrefFor(CONFIG.checkoutCompleto);
+    a.addEventListener("click", () => track("plano_click", { plano: "completo", position: a.dataset.pos }));
+  });
+  // Básico: primeiro mostra o pop-up do Completo (uma vez); depois segue para o checkout
+  const dlg = document.getElementById("upgrade");
+  document.querySelectorAll(".js-basico-go").forEach(a => {
+    a.href = hrefFor(CONFIG.checkoutUrl);
+    a.addEventListener("click", () => track("plano_click", { plano: "basico", position: a.dataset.pos }));
+  });
+  let viuUp = false;
+  document.querySelectorAll(".js-basico").forEach(a => {
+    a.href = hrefFor(CONFIG.checkoutUrl);
+    a.addEventListener("click", e => {
+      if (!viuUp && dlg && typeof dlg.showModal === "function" && CONFIG.checkoutCompleto) {
+        e.preventDefault(); viuUp = true; dlg.showModal(); track("upsell_view", { position: a.dataset.pos }); return;
+      }
+      track("plano_click", { plano: "basico", position: a.dataset.pos });
+    });
+  });
+  if (dlg) {
+    document.getElementById("upX").addEventListener("click", () => dlg.close());
+    dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+  }
   if (!CONFIG.checkoutUrl) document.getElementById("review").hidden = false;
   const L = CONFIG.lancamento;
   if (L && L.ate && new Date() <= new Date(L.ate + "T23:59:59-03:00")) {
